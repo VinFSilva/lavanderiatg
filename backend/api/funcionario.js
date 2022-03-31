@@ -12,31 +12,33 @@ module.exports = app => {
         getHash(req.body.pass, hash => {
             const password = hash
 
-            app.db('cliente')
+            app.db('funcionario')
                 .insert({
-                    nome: req.body.name,
+                    nome: req.body.nome,
                     cpf: req.body.cpf,
                     rg: req.body.rg,
                     data_nascimento: req.body.data_nascimento,
                     telefone: req.body.telefone,
                     email: req.body.email,
+                    cargo: req.body.cargo,
+                    salario: req.body.salario,
                     ativo: req.body.ativo
 
                 })
                 .then(_ => res.status(201).send())
-                .catch(err => res.status(400).json({ message: err, status: "Erro ao cadastrar cliente!" }))
+                .catch(err => res.status(400).json({ message: err, status: "Erro ao cadastrar funcionario!" }))
         })
     }
 
     const listar = (req, res) => {
-        app.db('cliente')
+        app.db('funcionario')
             .select('*')
             .then(este => res.json(este))
             .catch(err => res.json(err))
     }
 
     const listarUm = async (req, res) => {
-        await app.db('cliente')
+        await app.db('funcionario')
             .where({ id: req.params.id })
             .first()
             .then(user => res.status(200).json(user))
@@ -44,13 +46,17 @@ module.exports = app => {
     }
 
     const update = async (req, res) => {
-        await app.db('cliente')
+        await app.db('funcionario')
             .where({ id: req.params.id })
             .update({
-                nome: req.body.name,
+                nome: req.body.nome,
+                cpf: req.body.cpf,
                 rg: req.body.rg,
+                data_nascimento: req.body.data_nascimento,
                 telefone: req.body.telefone,
                 email: req.body.email,
+                cargo: req.body.cargo,
+                salario: req.body.salario,
                 ativo: req.body.ativo
 
             })
@@ -59,10 +65,10 @@ module.exports = app => {
     }
 
     const deletar = async (req, res) => {
-        await app.db('cliente')
+        await app.db('funcionario')
             .where({ id: req.params.id })
             .deletar()
-            .then(user => res.json({ user, message: "Cliente deletado com sucesso!" }))
+            .then(user => res.json({ user, message: "Funcionario deletado com sucesso!" }))
             .catch(err => res.status(400).json(err))
     }
 

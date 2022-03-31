@@ -8,20 +8,20 @@ module.exports = app => {
             return res.status(400).send('Por favor insira email e senha')
         }
 
-        const user = await app.db('users')
+        const users = await app.db('users')
             .where({ email: req.body.email })
             .first()
 
-        if (user) {
-            bcrypt.compare(req.body.password, user.password, (err, isMatch) => {
+        if (users) {
+            bcrypt.compare(req.body.password, users.password, (err, isMatch) => {
                 if (err || !isMatch) {
                     return res.status(401).send("Senha Incorreta")
                 }
 
-                const payload = { id: user.id }
+                const payload = { id: users.id }
                 res.json({
-                    name: user.name,
-                    email: user.email,
+                    name: users.name,
+                    email: users.email,
                     token: jwt.encode(payload, authSecret)
                 })
             })

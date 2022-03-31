@@ -13,9 +13,9 @@ module.exports = app => {
         app.db('users')
             .where({ id: payload.id })
             .first()
-            .them(user => {
-                if (user) {
-                    done(null, { id: user.id, email: user.email })
+            .them(users => {
+                if (users) {
+                    done(null, { id: users.id, email: users.email })
                 } else {
                     done(null, false)
                 }

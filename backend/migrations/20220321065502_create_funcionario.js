@@ -4,7 +4,7 @@ exports.up = function (knex) {
         table.increments('id').primary()
         table.string('nome').notNull()
         table.string('cpf').notNull().unique()
-        table.string('RG').notNull()
+        table.string('rg').notNull()
         table.date('data_nascimento').notNull()
         table.string('telefone').notNull()
         table.string('email').notNull()
