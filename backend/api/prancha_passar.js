@@ -20,7 +20,7 @@ module.exports = app => {
                     ativo: req.body.ativo
 
                 })
-                .then(_ => res.status(204).send())
+                .then(_ => res.status(201).send())
                 .catch(err => res.status(400).json({ message: err, status: "Erro ao cadastrar prancha de passar!" }))
         })
     }

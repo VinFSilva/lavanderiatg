@@ -12,29 +12,34 @@ module.exports = app => {
         getHash(req.body.pass, hash => {
             const password = hash
 
-            app.db('secadora')
+            app.db('pedido')
                 .insert({
                     numero: req.body.numero,
-                    marca: req.body.marca,
-                    modelo: req.body.modelo,
-                    peso_maximo: req.body.peso_maximo,
-                    ativo: req.body.ativo
+                    data_coleta: req.body.data_coleta,
+                    data_entrega: req.body.data_entrega,
+                    finalizado: req.body.finalizado,
+                    aberto: req.body.aberto,
+                    cliente_id: req.body.cliente_id,
+                    itens_id: req.body.itens_id,
+                    maquina_lavar_id: req.body.maquina_lavar_id,
+                    secadora_id: req.body.secadora_id,
+                    prancha_passar_id: req.body.prancha_secar_id
 
                 })
                 .then(_ => res.status(201).send())
-                .catch(err => res.status(400).json({ message: err, status: "Erro ao cadastrar secadora!" }))
+                .catch(err => res.status(400).json({ message: err, status: "Erro ao cadastrar pedido!" }))
         })
     }
 
     const listar = (req, res) => {
-        app.db('secadora')
+        app.db('pedido')
             .select('*')
             .then(este => res.json(este))
             .catch(err => res.json(err))
     }
 
     const listarUm = async (req, res) => {
-        await app.db('secadora')
+        await app.db('pedido')
             .where({ id: req.params.id })
             .first()
             .then(user => res.status(200).json(user))
@@ -42,14 +47,19 @@ module.exports = app => {
     }
 
     const update = async (req, res) => {
-        await app.db('secadora')
+        await app.db('pedido')
             .where({ id: req.params.id })
             .update({
                 numero: req.body.numero,
-                marca: req.body.marca,
-                modelo: req.body.modelo,
-                peso_maximo: req.body.peso_maximo,
-                ativo: req.body.ativo
+                data_coleta: req.body.data_coleta,
+                data_entrega: req.body.data_entrega,
+                finalizado: req.body.finalizado,
+                aberto: req.body.aberto,
+                cliente_id: req.body.cliente_id,
+                itens_id: req.body.itens_id,
+                maquina_lavar_id: req.body.maquina_lavar_id,
+                secadora_id: req.body.secadora_id,
+                prancha_passar_id: req.body.prancha_secar_id
 
             })
             .then(_ => res.status(204).send())
@@ -57,10 +67,10 @@ module.exports = app => {
     }
 
     const deletar = async (req, res) => {
-        await app.db('secadora')
+        await app.db('pedido')
             .where({ id: req.params.id })
             .deletar()
-            .then(user => res.json({ user, message: "Secadora deletada com sucesso!" }))
+            .then(user => res.json({ user, message: "Endereço de passar deletado com sucesso!" }))
             .catch(err => res.status(400).json(err))
     }
 

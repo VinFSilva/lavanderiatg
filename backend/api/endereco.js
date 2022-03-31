@@ -19,10 +19,12 @@ module.exports = app => {
                     bairro: req.body.bairro,
                     cidade: req.body.cidade,
                     estado: req.body.estado,
-                    ativo: req.body.ativo
+                    ativo: req.body.ativo,
+                    cliente_id: req.body.cliente_id
+
 
                 })
-                .then(_ => res.status(204).send())
+                .then(_ => res.status(201).send())
                 .catch(err => res.status(400).json({ message: err, status: "Erro ao cadastrar endereço!" }))
         })
     }

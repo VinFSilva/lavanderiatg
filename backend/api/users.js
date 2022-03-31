@@ -18,7 +18,7 @@ module.exports = app => {
                     email: req.body.email,
                     pass: password,
                 })
-                .then(_ => res.status(204).send())
+                .then(_ => res.status(201).send())
                 .catch(err => res.status(400).json({ message: err, status: "Erro ao cadastrar usuário!" }))
         })
     }
