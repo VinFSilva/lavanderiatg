@@ -1,5 +1,5 @@
 module.exports = app => {
-    app.post('/signup', app.api.users.save)
+    app.post('/signup', app.api.users.salva)
     app.post('/signin', app.api.auth.signin)
 
     app.route('/users')
@@ -10,7 +10,7 @@ module.exports = app => {
 
     app.route('/cliente')
         .all(app.config.passport.authenticate())
-        .post(app.api.cliente.salvar)
+        .post(app.api.cliente.salva)
         .get(app.api.cliente.listar)
         .get(app.api.cliente.listarUm)
         .put(app.api.cliente.update)
@@ -18,14 +18,14 @@ module.exports = app => {
 
     app.route('/endereco')
         .all(app.config.passport.authenticate())
-        .post(app.api.endereco.salvar)
+        .post(app.api.endereco.salva)
         .get(app.api.endereco.listarUm)
         .put(app.api.endereco.update)
         .delete(app.api.endereco.deletar)
 
     app.route('/funcionario')
         .all(app.config.passport.authenticate())
-        .post(app.api.funcionario.salvar)
+        .post(app.api.funcionario.salva)
         .get(app.api.funcionario.listar)
         .get(app.api.funcionario.listarUm)
         .put(app.api.funcionario.update)
@@ -33,7 +33,7 @@ module.exports = app => {
 
     app.route('/itens')
         .all(app.config.passport.authenticate())
-        .post(app.api.itens.salvar)
+        .post(app.api.itens.salva)
         .get(app.api.itens.listar)
         .get(app.api.itens.listarUm)
         .put(app.api.itens.update)
@@ -41,7 +41,7 @@ module.exports = app => {
 
     app.route('/maquina_lavar')
         .all(app.config.passport.authenticate())
-        .post(app.api.maquina_lavar.salvar)
+        .post(app.api.maquina_lavar.salva)
         .get(app.api.maquina_lavar.listar)
         .get(app.api.maquina_lavar.listarUm)
         .put(app.api.maquina_lavar.update)
@@ -49,7 +49,7 @@ module.exports = app => {
 
     app.route('/prancha_passar')
         .all(app.config.passport.authenticate())
-        .post(app.api.prancha_passar.salvar)
+        .post(app.api.prancha_passar.salva)
         .get(app.api.prancha_passar.listar)
         .get(app.api.prancha_passar.listarUm)
         .put(app.api.prancha_passar.update)
@@ -57,7 +57,7 @@ module.exports = app => {
 
     app.route('/secadora')
         .all(app.config.passport.authenticate())
-        .post(app.api.secadora.salvar)
+        .post(app.api.secadora.salva)
         .get(app.api.secadora.listar)
         .get(app.api.secadora.listarUm)
         .put(app.api.secadora.update)
@@ -65,7 +65,7 @@ module.exports = app => {
 
     app.route('/pedido')
         .all(app.config.passport.authenticate())
-        .post(app.api.pedido.salvar)
+        .post(app.api.pedido.salva)
         .get(app.api.pedido.listar)
         .get(app.api.pedido.listarUm)
         .put(app.api.pedido.update)
