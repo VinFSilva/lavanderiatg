@@ -20,6 +20,8 @@ module.exports = app => {
                     cidade: req.body.cidade,
                     estado: req.body.estado,
                     ativo: req.body.ativo,
+                    createdAt: req.body.createdAt,
+                    updatedAt: req.body.updatedAt,
                     cliente_id: req.body.cliente_id
 
 
@@ -47,7 +49,8 @@ module.exports = app => {
                 bairro: req.body.bairro,
                 cidade: req.body.cidade,
                 estado: req.body.estado,
-                ativo: req.body.ativo
+                ativo: req.body.ativo,
+                updatedAt: req.body.updatedAt
 
             })
             .then(_ => res.status(204).send())

@@ -14,13 +14,15 @@ module.exports = app => {
 
             app.db('cliente')
                 .insert({
-                    nome: req.body.name,
+                    nome: req.body.nome,
                     cpf: req.body.cpf,
                     rg: req.body.rg,
                     data_nascimento: req.body.data_nascimento,
                     telefone: req.body.telefone,
                     email: req.body.email,
-                    ativo: req.body.ativo
+                    ativo: req.body.ativo,
+                    createdAt: req.body.createdAt,
+                    updatedAt: req.body.updatedAt
 
                 })
                 .then(_ => res.status(201).send())
@@ -51,7 +53,8 @@ module.exports = app => {
                 rg: req.body.rg,
                 telefone: req.body.telefone,
                 email: req.body.email,
-                ativo: req.body.ativo
+                ativo: req.body.ativo,
+                updatedAt: req.body.updatedAt
 
             })
             .then(_ => res.status(204).send())

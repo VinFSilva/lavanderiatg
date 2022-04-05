@@ -22,7 +22,9 @@ module.exports = app => {
                     email: req.body.email,
                     cargo: req.body.cargo,
                     salario: req.body.salario,
-                    ativo: req.body.ativo
+                    ativo: req.body.ativo,
+                    createdAt: req.body.createdAt,
+                    updatedAt: req.body.updatedAt
 
                 })
                 .then(_ => res.status(201).send())
@@ -57,7 +59,8 @@ module.exports = app => {
                 email: req.body.email,
                 cargo: req.body.cargo,
                 salario: req.body.salario,
-                ativo: req.body.ativo
+                ativo: req.body.ativo,
+                updatedAt: req.body.updatedAt
 
             })
             .then(_ => res.status(204).send())

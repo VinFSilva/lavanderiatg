@@ -13,14 +13,14 @@ module.exports = app => {
         app.db('users')
             .where({ id: payload.id })
             .first()
-            .them(users => {
-                if (users) {
-                    done(null, { id: users.id, email: users.email })
+            .then(user => {
+                if (user) {
+                    done(null, { id: user.id, email: user.email })
                 } else {
                     done(null, false)
                 }
             })
-            .chatch(err => done(err, false))
+            .catch(err => done(err, false))
     })
 
     passport.use(strategy)

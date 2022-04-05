@@ -3,20 +3,21 @@ module.exports = app => {
 
     const getHash = (password, callback) => {
         bcrypt.genSalt(10, (err, salt) => {
+            console.log(password, 'salt é:', salt)
             bcrypt.hash(password, salt, (err, hash) => callback(hash))
         })
     }
 
     const salva = (req, res) => {
 
-        getHash(req.body.pass, hash => {
+        getHash(req.body.password, hash => {
             const password = hash
 
             app.db('users')
                 .insert({
                     name: req.body.name,
                     email: req.body.email,
-                    pass: password,
+                    password: password,
                 })
                 .then(_ => res.status(201).send())
                 .catch(err => res.status(400).json({ message: err, status: "Erro ao cadastrar usuário!" }))

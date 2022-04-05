@@ -17,7 +17,9 @@ module.exports = app => {
                     numero: req.body.numero,
                     marca: req.body.marca,
                     modelo: req.body.modelo,
-                    ativo: req.body.ativo
+                    ativo: req.body.ativo,
+                    createdAt: req.body.createdAt,
+                    updatedAt: req.body.updatedAt
 
                 })
                 .then(_ => res.status(201).send())
@@ -47,7 +49,8 @@ module.exports = app => {
                 numero: req.body.numero,
                 marca: req.body.marca,
                 modelo: req.body.modelo,
-                ativo: req.body.ativo
+                ativo: req.body.ativo,
+                updatedAt: req.body.updatedAt
 
             })
             .then(_ => res.status(204).send())

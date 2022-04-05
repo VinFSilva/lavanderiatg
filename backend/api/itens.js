@@ -18,6 +18,8 @@ module.exports = app => {
                     peso_total: req.body.peso_total,
                     observacoes: req.body.observacoes,
                     ativo: req.body.ativo,
+                    createdAt: req.body.createdAt,
+                    updatedAt: req.body.updatedAt,
                     cliente_id: req.body.cliente_id
 
                 })
@@ -49,6 +51,7 @@ module.exports = app => {
                 peso_total: req.body.peso_total,
                 observacoes: req.body.observacoes,
                 ativo: req.body.ativo,
+                updatedAt: req.body.updatedAt,
                 cliente_id: req.body.cliente_id
 
             })
