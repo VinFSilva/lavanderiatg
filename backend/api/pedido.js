@@ -25,7 +25,7 @@ module.exports = app => {
                     itens_id: req.body.itens_id,
                     maquina_lavar_id: req.body.maquina_lavar_id,
                     secadora_id: req.body.secadora_id,
-                    prancha_passar_id: req.body.prancha_secar_id
+                    prancha_passar_id: req.body.prancha_passar_id
 
                 })
                 .then(_ => res.status(201).send())
@@ -73,7 +73,7 @@ module.exports = app => {
         await app.db('pedido')
             .where({ id: req.params.id })
             .deletar()
-            .then(user => res.json({ user, message: "Endereço de passar deletado com sucesso!" }))
+            .then(user => res.json({ user, message: "Pedido deletado com sucesso!" }))
             .catch(err => res.status(400).json(err))
     }
 

@@ -4,6 +4,7 @@ module.exports = app => {
 
     app.route('/users')
         .all(app.config.passport.authenticate())
+        .get(app.api.users.listar)
         .get(app.api.users.listarUm)
         .put(app.api.users.update)
         .delete(app.api.users.deletar)
@@ -20,6 +21,7 @@ module.exports = app => {
         .all(app.config.passport.authenticate())
         .post(app.api.endereco.salva)
         .get(app.api.endereco.listarUm)
+        .get(app.api.endereco.listar)
         .put(app.api.endereco.update)
         .delete(app.api.endereco.deletar)
 
