@@ -60,7 +60,7 @@ module.exports = app => {
     const deletar = async (req, res) => {
         await app.db('prancha_passar')
             .where({ id: req.params.id })
-            .deletar()
+            .delete()
             .then(user => res.json({ user, message: "Prancha de passar deletada com sucesso!" }))
             .catch(err => res.status(400).json(err))
     }

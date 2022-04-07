@@ -42,6 +42,7 @@ module.exports = app => {
 
     const listarUm = async (req, res) => {
         await app.db('pedido')
+            .select('*')
             .where({ id: req.params.id })
             .first()
             .then(user => res.status(200).json(user))
@@ -72,7 +73,7 @@ module.exports = app => {
     const deletar = async (req, res) => {
         await app.db('pedido')
             .where({ id: req.params.id })
-            .deletar()
+            .delete()
             .then(user => res.json({ user, message: "Pedido deletado com sucesso!" }))
             .catch(err => res.status(400).json(err))
     }
