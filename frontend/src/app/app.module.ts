@@ -12,6 +12,23 @@ import { PedidoListComponent } from './pedido/pedido-list/pedido-list.component'
 import { PranchaPassarListComponent } from './prancha-passar/prancha-passar-list/prancha-passar-list.component';
 import { SecadoraListComponent } from './secadora/secadora-list/secadora-list.component';
 import { UsersListComponent } from './users/users-list/users-list.component';
+import { HeaderComponent } from './components/template/header/header.component';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FooterComponent } from './components/template/footer/footer.component';
+import { NavComponent } from './components/template/nav/nav.component';
+
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { ClienteFormComponent } from './cliente/cliente-form/cliente-form.component';
+import { ClienteListComponent } from './cliente/cliente-list/cliente-list.component';
+import { EnderecoFormComponent } from './endereco/endereco-form/endereco-form.component';
+import { FuncionarioFormComponent } from './funcionario/funcionario-form/funcionario-form.component';
+import { ItensFormComponent } from './itens/itens-form/itens-form.component';
+import { MaquinaLavarFormComponent } from './maquina-lavar/maquina-lavar-form/maquina-lavar-form.component';
+import { PranchaPassarFormComponent } from './prancha-passar/prancha-passar-form/prancha-passar-form.component';
+import { PedidoFormComponent } from './pedido/pedido-form/pedido-form.component';
+import { SecadoraFormComponent } from './secadora/secadora-form/secadora-form.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +40,28 @@ import { UsersListComponent } from './users/users-list/users-list.component';
     PedidoListComponent,
     PranchaPassarListComponent,
     SecadoraListComponent,
-    UsersListComponent
+    UsersListComponent,
+    HeaderComponent,
+    FooterComponent,
+    NavComponent,
+    ClienteFormComponent,
+    ClienteListComponent,
+    EnderecoFormComponent,
+    FuncionarioFormComponent,
+    ItensFormComponent,
+    MaquinaLavarFormComponent,
+    PranchaPassarFormComponent,
+    PedidoFormComponent,
+    SecadoraFormComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,14 @@
+.toobar {
+    display: flex;
+    align-items: center;
+}
+
+.toobar a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.toobar .logo {
+    max-height: 32px;
+}
