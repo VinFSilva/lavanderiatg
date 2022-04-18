@@ -1,0 +1,86 @@
+<h1>Dados do cliente</h1>
+
+<mat-toolbar class="new-item">
+    <a mat-raised-button [routerLink]="['/cliente/novo']">
+        <mat-icon>add_circle</mat-icon>
+        Novo cliente
+    </a>
+</mat-toolbar>
+
+<table mat-table [dataSource]="cliente" class="mat-elevation-z4">
+
+    <!-- Nome Column -->
+    <ng-container matColumnDef="nome">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Nome </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let cliente"> {{ cliente.nome }} </td>
+    </ng-container>
+
+    <!-- CPF Column -->
+    <ng-container matColumnDef="cpf">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> CPF </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let cliente"> {{ cliente.cpf }} </td>
+    </ng-container>
+
+    <!-- RG Column -->
+    <ng-container matColumnDef="rg">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> RG </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let cliente"> {{ cliente.rg }} </td>
+    </ng-container>
+
+    <!-- DataNasc Column -->
+    <ng-container matColumnDef="data_nascimento">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Data de Nascimento </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let cliente"> {{ cliente.data_nascimento | date:'dd/MM/yyyy'
+            }} </td>
+    </ng-container>
+
+
+    <!-- Telefone Column -->
+    <ng-container matColumnDef="telefone">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Telefone </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let cliente"> {{ cliente.telefone }} </td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Email </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let cliente"> {{ cliente.email }} </td>
+    </ng-container>
+
+    <!-- DataNasc Column -->
+    <ng-container matColumnDef="createdAt">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Data de Criação </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let cliente"> {{ cliente.createdAt | date:'dd/MM/yyyy' }}
+        </td>
+    </ng-container>
+
+    <!-- DataNasc Column -->
+    <ng-container matColumnDef="updatedAt">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Data de Atualização </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let cliente"> {{ cliente.updatedAt | date:'dd/MM/yyyy' }}
+        </td>
+    </ng-container>
+
+    <!-- Editar Column -->
+    <ng-container matColumnDef="editar">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Editar</th>
+        <td mat-cell class="cell-align-center" *matCellDef="let cliente">
+            <a mat-raised-button color="accent" title="Editar" [routerLink]="['/cliente', cliente.id]">
+                <mat-icon>edit</mat-icon>
+            </a>
+        </td>
+    </ng-container>
+
+    <!-- Excluir Column -->
+    <ng-container matColumnDef="excluir">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Excluir</th>
+        <td mat-cell class="cell-align-center" *matCellDef="let cliente">
+            <button mat-raised-button color="warn" title="Excluir" (click)="excluir(cliente.id)">
+                <mat-icon>delete_forever</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
