@@ -1,1 +1,34 @@
-<p>maquina-lavar-form works!</p>
+<h1>Dados da Máquina de Lavar</h1>
+<form class="std-form" #f="ngForm" (ngSubmit)="salva(f)">
+
+    <mat-form-field>
+        <mat-label>Numero da Máquina</mat-label>
+        <input matInput type="number" [(ngModel)]="maquina_lavar.numero" name="numero" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Marca</mat-label>
+        <input matInput type="string" [(ngModel)]="maquina_lavar.carca" name="marca" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Modelo</mat-label>
+        <input matInput type="string" [(ngModel)]="maquina_lavar.modelo" name="modelo" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Peso Máximo</mat-label>
+        <input matInput type="number" [(ngModel)]="maquina_lavar.peso_max" name="peso_maximo" required>
+    </mat-form-field>
+
+    <mat-toolbar class="form-buttons">
+        <mat-toolbar-row>
+            <button mat-raised-button type="submit" color="accent">
+                Salvar
+            </button>
+            <button mat-raised-button type="button" (click)="voltar(f)">
+                Voltar
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</form>

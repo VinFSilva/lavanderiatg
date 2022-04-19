@@ -1,0 +1,56 @@
+<h1>Detalhes de Prancha de Passar</h1>
+
+<mat-toolbar class="new-item">
+    <a mat-raised-button collor="accent" [routerLink]="['/prancha-passar/novo']">
+        <mat-icon>add_circle</mat-icon>
+        Nova Prancha
+    </a>
+</mat-toolbar>
+
+<table mat-table [dataSource]="pranchas_passar" class="mat-elevation-z4">
+
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Numero Column -->
+    <ng-container matColumnDef="numero">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Número </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let prancha_passar"> {{ prancha_passar.numero }} </td>
+    </ng-container>
+
+    <!-- Modelo Column -->
+    <ng-container matColumnDef="modelo">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Modelo </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let prancha_passar"> {{ prancha_passar.modelo }} </td>
+    </ng-container>
+
+    <!-- Marca Column -->
+    <ng-container matColumnDef="marca">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Marca </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let prancha_passar"> {{ prancha_passar.marca }} </td>
+    </ng-container>
+
+
+    <!-- Editar Column -->
+    <ng-container matColumnDef="editar">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Editar</th>
+        <td mat-cell class="cell-align-center" *matCellDef="let prancha_passar">
+            <a mat-raised-button color="accent" title="Editar" [routerLink]="['/prancha-passar', prancha_passar.id]">
+                <mat-icon>edit</mat-icon>
+            </a>
+        </td>
+    </ng-container>
+
+    <!-- Excluir Column -->
+    <ng-container matColumnDef="deletar">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Deletar</th>
+        <td mat-cell class="cell-align-center" *matCellDef="let prancha_passar">
+            <button mat-raised-button color="warn" title="Deletar" (click)="deletar(prancha_passar.id)">
+                <mat-icon>delete_forever</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

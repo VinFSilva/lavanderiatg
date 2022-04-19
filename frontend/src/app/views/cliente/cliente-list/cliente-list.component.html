@@ -7,7 +7,7 @@
     </a>
 </mat-toolbar>
 
-<table mat-table [dataSource]="cliente" class="mat-elevation-z4">
+<table mat-table [dataSource]="clientes" class="mat-elevation-z4">
 
     <!-- Nome Column -->
     <ng-container matColumnDef="nome">
@@ -72,10 +72,10 @@
     </ng-container>
 
     <!-- Excluir Column -->
-    <ng-container matColumnDef="excluir">
+    <ng-container matColumnDef="deletar">
         <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Excluir</th>
         <td mat-cell class="cell-align-center" *matCellDef="let cliente">
-            <button mat-raised-button color="warn" title="Excluir" (click)="excluir(cliente.id)">
+            <button mat-raised-button color="warn" title="Excluir" (click)="deletar(cliente.id)">
                 <mat-icon>delete_forever</mat-icon>
             </button>
         </td>

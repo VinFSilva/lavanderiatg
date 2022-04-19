@@ -1,16 +1,63 @@
 <mat-sidenav-container>
     <mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true" fixedTopGap="130" fixedBottomGap="40">
         <mat-nav-list class="nav-list">
-            <a mat-list-item [routerlink]="[/pedido]">Pedidos</a>
-            <a mat-list-item [routerlink]="[/endereco]">Endereços</a>
-            <a mat-list-item [routerlink]="[/itens]">Itens</a>
-            <a mat-list-item [routerlink]="[/maquina-lavar]">Maquinas de Lavar</a>
-            <a mat-list-item [routerlink]="[/prancha-passar]">Pranchas de Passar</a>
-            <a mat-list-item [routerlink]="[/secadora]">Secadora</a>
-            <a mat-list-item [routerlink]="[/users]">Usuários Cadastrados</a>
-            <a mat-list-item [routerlink]="[/funcionario]">Funcionários</a>
-
-
+            <a mat-list-item routerLink="/pedido">
+                <i class="material-icons">
+                    add_shopping_cart
+                </i>
+                Pedidos
+            </a>
+            <a mat-list-item routerLink="/cliente">
+                <i class="material-icons">
+                    add_shopping_cart
+                </i>
+                Clientes
+            </a>
+            <a mat-list-item routerLink="/endereco">
+                <i class="material-icons">
+                    add_shopping_cart
+                </i>
+                Endereços
+            </a>
+            <a mat-list-item routerLink="/maquina-lavar">
+                <i class="material-icons">
+                    add_shopping_cart
+                </i>
+                Maquinas de Lavar
+            </a>
+            <a mat-list-item routerLink="/prancha-passar">
+                <i class="material-icons">
+                    add_shopping_cart
+                </i>
+                Pranchas de Passar
+            </a>
+            <a mat-list-item routerLink="/secadora">
+                <i class="material-icons">
+                    add_shopping_cart
+                </i>
+                Secadoras
+            </a>
+            <a mat-list-item routerLink="/itens">
+                <i class="material-icons">
+                    add_shopping_cart
+                </i>
+                Itens
+            </a>
+            <a mat-list-item routerLink="/users">
+                <i class="material-icons">
+                    add_shopping_cart
+                </i>
+                Usuários
+            </a>
+            <a mat-list-item routerLink="/funcionario">
+                <i class="material-icons">
+                    add_shopping_cart
+                </i>
+                Funcionários
+            </a>
         </mat-nav-list>
     </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
 </mat-sidenav-container>

@@ -31,8 +31,7 @@ export class ClienteFormComponent implements OnInit {
         // 1) Acionar o back-end para buscar esse registro
         // e disponibilizá-lo para edição        
         this.cliente = await this.clienteSrv.listarUm(this.actRoute.snapshot.params['id'])
-        // 2) Mudar o título da página
-        this.title = 'Editando cliente'
+
       }
       catch (erro) {
         console.log(erro)

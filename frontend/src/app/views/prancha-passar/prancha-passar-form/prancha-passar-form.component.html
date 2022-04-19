@@ -1,1 +1,29 @@
-<p>prancha-passar-form works!</p>
+<h1>Dados da Prancha de Passar</h1>
+<form class="std-form" #f="ngForm" (ngSubmit)="salva(f)">
+
+    <mat-form-field>
+        <mat-label>Numero da Prancha</mat-label>
+        <input matInput type="number" [(ngModel)]="prancha_passar.numero" name="numero" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Marca</mat-label>
+        <input matInput type="string" [(ngModel)]="prancha_passar.carca" name="marca" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Modelo</mat-label>
+        <input matInput type="string" [(ngModel)]="prancha_passar.modelo" name="modelo" required>
+    </mat-form-field>
+
+    <mat-toolbar class="form-buttons">
+        <mat-toolbar-row>
+            <button mat-raised-button type="submit" color="accent">
+                Salvar
+            </button>
+            <button mat-raised-button type="button" (click)="voltar(f)">
+                Voltar
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</form>
