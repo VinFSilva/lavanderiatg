@@ -13,7 +13,7 @@ export class PranchaPassarListComponent implements OnInit {
   pranchas_passar: any = []
 
   // Quais colunas serão exibidas na tabela, e em qual ordem
-  displayedColumns: string[] = ['numero', 'marca', 'modelo', 'editar', 'excluir']
+  displayedColumns: string[] = ['numero', 'marca', 'modelo', 'editar', 'deletar']
 
   // Injeção de dependência ou inversão de controle
   constructor(

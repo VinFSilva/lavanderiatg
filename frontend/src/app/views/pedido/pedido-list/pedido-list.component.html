@@ -1,0 +1,95 @@
+<h1>Detalhes do Pedido</h1>
+
+<mat-toolbar class="new-item">
+    <a mat-raised-button [routerLink]="['/pedido/novo']">
+        <mat-icon>add_circle</mat-icon>
+        Novo pedido
+    </a>
+</mat-toolbar>
+
+<table mat-table [dataSource]="pedidos" class="mat-elevation-z4">
+
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Numero Column -->
+    <ng-container matColumnDef="numero">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Número do pedido </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido.numero }} </td>
+    </ng-container>
+
+    <!-- DataCol Column -->
+    <ng-container matColumnDef="data_coleta">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Data de Coleta </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido.data_coleta | date:'dd/MM/yyyy'
+            }} </td>
+    </ng-container>
+
+    <!-- DataEntr Column -->
+    <ng-container matColumnDef="data_entrega">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Data de Entrega </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido.data_entrega | date:'dd/MM/yyyy'
+            }} </td>
+    </ng-container>
+
+    <!-- Finalizado Column -->
+    <ng-container matColumnDef="finalizado">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Data de Finalização </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido.finalizado | date:'dd/MM/yyyy'
+            }} </td>
+    </ng-container>
+
+    <!-- Cliente Column -->
+    <ng-container matColumnDef="cliente">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Cliente </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido.cliente?.nome }} </td>
+    </ng-container>
+
+    <!-- Itens Column -->
+    <ng-container matColumnDef="itens">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Itens </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido.itens?.numero }} </td>
+    </ng-container>
+
+    <!-- Maquina Column -->
+    <ng-container matColumnDef="maquina_lavar">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Maquina de Lavar </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido.maquina_lavar?.numero }} </td>
+    </ng-container>
+
+    <!-- Secadora Column -->
+    <ng-container matColumnDef="secadora">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Secadora </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido.secadora?.numero }} </td>
+    </ng-container>
+
+    <!-- Prancha Column -->
+    <ng-container matColumnDef="prancha_passar">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Prancha de Passar </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido.prancha_passar?.numero }} </td>
+    </ng-container>
+
+
+    <!-- Editar Column -->
+    <ng-container matColumnDef="editar">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Editar</th>
+        <td mat-cell class="cell-align-center" *matCellDef="let pedido">
+            <a mat-raised-button color="accent" title="Editar" [routerLink]="['/pedido', pedido.id]">
+                <mat-icon>edit</mat-icon>
+            </a>
+        </td>
+    </ng-container>
+
+    <!-- Excluir Column -->
+    <ng-container matColumnDef="deletar">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Excluir</th>
+        <td mat-cell class="cell-align-center" *matCellDef="let pedido">
+            <button mat-raised-button color="warn" title="Deletar" (click)="deletar(pedido.id)">
+                <mat-icon>delete_forever</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

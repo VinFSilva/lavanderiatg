@@ -1,1 +1,90 @@
-<p>pedido-form works!</p>
+<h1>Dados do Pedido</h1>
+<form class="std-form" #f="ngForm" (ngSubmit)="salva(f)">
+
+    <mat-form-field>
+        <mat-label>Número do pedido</mat-label>
+        <input matInput type="number" placeholder="Informe o numero do pedido" [(ngModel)]="pedido.numero" name="numero"
+            required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Data da Coleta</mat-label>
+        <input matInput [matDatepicker]="dataColeta" name="data_coleta" [(ngModel)]="pedido.data_coleta"
+            placeholder="Informe a data da coleta" required>
+        <mat-datepicker-toggle matSuffix [for]="dataColeta"></mat-datepicker-toggle>
+        <mat-datepicker #dataColeta></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Data da Entrega</mat-label>
+        <input matInput [matDatepicker]="dataEntrega" name="data_entrega" [(ngModel)]="pedido.data_entrega"
+            placeholder="Informe a data da Entrega" required>
+        <mat-datepicker-toggle matSuffix [for]="dataEntrega"></mat-datepicker-toggle>
+        <mat-datepicker #dataEntrega></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Data de Finalização</mat-label>
+        <input matInput [matDatepicker]="finalizado" name="finalizado" [(ngModel)]="pedido.finalizado"
+            placeholder="Informe a data de finalização" required>
+        <mat-datepicker-toggle matSuffix [for]="finalizado"></mat-datepicker-toggle>
+        <mat-datepicker #finalizado></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Cliente</mat-label>
+        <mat-select [(ngModel)]="pedido.cliente_id" name="cliente" required>
+            <mat-option *ngFor="let cliente of clientes" [value]="cliente.id">
+                {{ cliente.nome }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Itens</mat-label>
+        <mat-select [(ngModel)]="pedido.itens_id" name="itens" required>
+            <mat-option *ngFor="let itens of itens" [value]="itens.id">
+                {{ itens.id }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Maquina de Lavar</mat-label>
+        <mat-select [(ngModel)]="pedido.maquina_lavar_id" name="maquina_lavar" required>
+            <mat-option *ngFor="let maquina_lavar of maquinas_lavar" [value]="maquina_lavar.id">
+                {{ maquina_lavar.numero }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Secadora</mat-label>
+        <mat-select [(ngModel)]="pedido.secadora_id" name="secadora" required>
+            <mat-option *ngFor="let secadora of secadoras" [value]="secadora.id">
+                {{ secadora.numero }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Prancha de Passar</mat-label>
+        <mat-select [(ngModel)]="pedido.prancha_passar_id" name="prancha_passar" required>
+            <mat-option *ngFor="let prancha_passar of pranchas_passar" [value]="prancha_passar.id">
+                {{ prancha_passar.numero }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+    <mat-toolbar class="form-buttons">
+        <mat-toolbar-row>
+            <button mat-raised-button type="submit" color="accent">
+                Salvar
+            </button>
+            <button mat-raised-button type="button" (click)="voltar(f)">
+                Voltar
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</form>

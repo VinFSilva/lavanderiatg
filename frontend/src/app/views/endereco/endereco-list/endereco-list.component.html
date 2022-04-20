@@ -1,0 +1,74 @@
+<h1>Detalhes do endereço</h1>
+
+<mat-toolbar class="new-item">
+    <a mat-raised-button [routerLink]="['/endereco/novo']">
+        <mat-icon>add_circle</mat-icon>
+        Novo endereco
+    </a>
+</mat-toolbar>
+
+<table mat-table [dataSource]="enderecos" class="mat-elevation-z4">
+
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Rua Column -->
+    <ng-container matColumnDef="rua">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Rua </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let endereco"> {{ endereco.rua }} </td>
+    </ng-container>
+
+    <!-- Numero Column -->
+    <ng-container matColumnDef="numero">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Número </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let endereco"> {{ endereco.numero }} </td>
+    </ng-container>
+
+    <!-- Bairro Column -->
+    <ng-container matColumnDef="bairro">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Bairro </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let endereco"> {{ endereco.bairro }} </td>
+    </ng-container>
+
+    <!-- Cidade Column -->
+    <ng-container matColumnDef="cidade">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Cidade </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let endereco"> {{ endereco.cidade }} </td>
+    </ng-container>
+
+    <!-- Estado Column -->
+    <ng-container matColumnDef="estado">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Estado </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let endereco"> {{ endereco.estado }} </td>
+    </ng-container>
+
+    <!-- Cliente Column -->
+    <ng-container matColumnDef="cliente">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Cliente </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let endereco"> {{ endereco.cliente?.nome }} </td>
+    </ng-container>
+
+
+    <!-- Editar Column -->
+    <ng-container matColumnDef="editar">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Editar</th>
+        <td mat-cell class="cell-align-center" *matCellDef="let endereco">
+            <a mat-raised-button color="accent" title="Editar" [routerLink]="['/endereco', endereco.id]">
+                <mat-icon>edit</mat-icon>
+            </a>
+        </td>
+    </ng-container>
+
+    <!-- Excluir Column -->
+    <ng-container matColumnDef="deletar">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Excluir</th>
+        <td mat-cell class="cell-align-center" *matCellDef="let endereco">
+            <button mat-raised-button color="warn" title="Deletar" (click)="deletar(endereco.id)">
+                <mat-icon>delete_forever</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

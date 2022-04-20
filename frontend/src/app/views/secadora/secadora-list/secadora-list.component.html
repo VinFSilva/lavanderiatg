@@ -1,0 +1,61 @@
+<h1>Detalhes de Secadora</h1>
+
+<mat-toolbar class="new-item">
+    <a mat-raised-button collor="accent" [routerLink]="['/secadora/novo']">
+        <mat-icon>add_circle</mat-icon>
+        Nova Secadora
+    </a>
+</mat-toolbar>
+
+<table mat-table [dataSource]="secadoras" class="mat-elevation-z4">
+
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Numero Column -->
+    <ng-container matColumnDef="numero">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Número </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let secadora"> {{ secadora.numero }} </td>
+    </ng-container>
+
+    <!-- Modelo Column -->
+    <ng-container matColumnDef="modelo">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Modelo </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let secadora"> {{ secadora.modelo }} </td>
+    </ng-container>
+
+    <!-- Marca Column -->
+    <ng-container matColumnDef="marca">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Marca </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let secadora"> {{ secadora.marca }} </td>
+    </ng-container>
+
+    <!-- PesoMax Column -->
+    <ng-container matColumnDef="peso_maximo">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Peso Máximo </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let secadora"> {{ secadora.peso_maximo }} </td>
+    </ng-container>
+
+    <!-- Editar Column -->
+    <ng-container matColumnDef="editar">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Editar</th>
+        <td mat-cell class="cell-align-center" *matCellDef="let secadora">
+            <a mat-raised-button color="accent" title="Editar" [routerLink]="['/secadora', secadora.id]">
+                <mat-icon>edit</mat-icon>
+            </a>
+        </td>
+    </ng-container>
+
+    <!-- Excluir Column -->
+    <ng-container matColumnDef="deletar">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Deletar</th>
+        <td mat-cell class="cell-align-center" *matCellDef="let secadora">
+            <button mat-raised-button color="warn" title="Deletar" (click)="deletar(secadoras.id)">
+                <mat-icon>delete_forever</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

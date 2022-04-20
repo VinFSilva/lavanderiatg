@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
 import { MatMomentDateModule, MAT_MOMENT_DATE_FORMATS, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
-import { MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/core';
+import { MAT_DATE_LOCALE, MAT_DATE_FORMATS, MatOptionModule } from '@angular/material/core';
 
 import { NgxMaskModule, IConfig } from 'ngx-mask'
 
@@ -46,6 +46,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+
 
 
 @NgModule({
@@ -87,8 +90,11 @@ import { MatTableModule } from '@angular/material/table';
     FormsModule,
     MatFormFieldModule,
     MatMomentDateModule,
+    MatSelectModule,
+    MatOptionModule,
     MatIconModule,
     MatInputModule,
+    MatButtonModule,
     MatDatepickerModule,
     NgxMaskModule.forRoot()
   ],

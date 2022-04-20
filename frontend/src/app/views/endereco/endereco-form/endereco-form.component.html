@@ -1,1 +1,54 @@
-<p>endereco-form works!</p>
+<h1>Dados do Endereco</h1>
+<form class="std-form" #f="ngForm" (ngSubmit)="salva(f)">
+
+    <mat-form-field>
+        <mat-label>Nome da Rua</mat-label>
+        <input matInput type="number" placeholder="Informe o nome da rua" [(ngModel)]="endereco.rua" name="rua"
+            required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Número</mat-label>
+        <input matInput type="number" placeholder="Informe o número da rua" [(ngModel)]="endereco.numero" name="numero"
+            required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Bairro</mat-label>
+        <input matInput type="number" placeholder="Informe o nome do bairro" [(ngModel)]="endereco.bairro" name="bairro"
+            required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Cidade</mat-label>
+        <input matInput type="number" placeholder="Informe a cidade" [(ngModel)]="endereco.cidade" name="cidade"
+            required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Estado</mat-label>
+        <input matInput type="number" placeholder="Informe o estado" [(ngModel)]="endereco.estado" name="estado"
+            required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Cliente</mat-label>
+        <mat-select [(ngModel)]="endereco.cliente_id" name="cliente" required>
+            <mat-option *ngFor="let cliente of clientes" [value]="cliente.id">
+                {{ cliente.nome }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+    <mat-toolbar class="form-buttons">
+        <mat-toolbar-row>
+            <button mat-raised-button type="submit" color="accent">
+                Salvar
+            </button>
+            <button mat-raised-button type="button" (click)="voltar(f)">
+                Voltar
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</form>

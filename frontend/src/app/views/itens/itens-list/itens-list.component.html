@@ -1,20 +1,56 @@
-import { Component, OnInit } from '@angular/core';
+<h1>Detalhes dos itens</h1>
 
-@Component({
-  selector: 'app-itens-list',
-  template: `
-    <p>
-      itens-list works!
-    </p>
-  `,
-  styles: [
-  ]
-})
-export class ItensListComponent implements OnInit {
+<mat-toolbar class="new-item">
+  <a mat-raised-button [routerLink]="['/itens/novo']">
+    <mat-icon>add_circle</mat-icon>
+    Novos itens
+  </a>
+</mat-toolbar>
 
-  constructor() { }
+<table mat-table [dataSource]="itens" class="mat-elevation-z4">
 
-  ngOnInit(): void {
-  }
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
 
-}
+  <!-- Numero Column -->
+  <ng-container matColumnDef="numero_pecas">
+    <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Número de peças </th>
+    <td mat-cell class="cell-align-center" *matCellDef="let itens"> {{ itens.numero_pecas }} </td>
+  </ng-container>
+
+  <!-- Peso Column -->
+  <ng-container matColumnDef="peso_total">
+    <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Peso Total </th>
+    <td mat-cell class="cell-align-center" *matCellDef="let itens"> {{ itens.peso_total }} </td>
+  </ng-container>
+
+  <!-- Cliente Column -->
+  <ng-container matColumnDef="cliente">
+    <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Cliente </th>
+    <td mat-cell class="cell-align-center" *matCellDef="let itens"> {{ itens.cliente?.nome }} </td>
+  </ng-container>
+
+
+  <!-- Editar Column -->
+  <ng-container matColumnDef="editar">
+    <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Editar</th>
+    <td mat-cell class="cell-align-center" *matCellDef="let itens">
+      <a mat-raised-button color="accent" title="Editar" [routerLink]="['/itens', itens.id]">
+        <mat-icon>edit</mat-icon>
+      </a>
+    </td>
+  </ng-container>
+
+  <!-- Excluir Column -->
+  <ng-container matColumnDef="deletar">
+    <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Excluir</th>
+    <td mat-cell class="cell-align-center" *matCellDef="let itens">
+      <button mat-raised-button color="warn" title="Deletar" (click)="deletar(itens.id)">
+        <mat-icon>delete_forever</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

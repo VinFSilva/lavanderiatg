@@ -1,1 +1,42 @@
-<p>itens-form works!</p>
+<h1>Dados de Itens</h1>
+<form class="std-form" #f="ngForm" (ngSubmit)="salva(f)">
+
+    <mat-form-field>
+        <mat-label>Número de peças</mat-label>
+        <input matInput type="number" placeholder="Informe o numero de peças" [(ngModel)]="itens.numero_pecas"
+            name="numero_pecas" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Peso Total</mat-label>
+        <input matInput type="number" placeholder="Informe o peso total" [(ngModel)]="itens.peso_total"
+            name="peso_total" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Observações</mat-label>
+        <input matInput type="string" placeholder="Observações sobre peças de roupa" [(ngModel)]="itens.observacoes"
+            name="observacoes" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Cliente</mat-label>
+        <mat-select [(ngModel)]="itens.cliente_id" name="cliente" required>
+            <mat-option *ngFor="let cliente of clientes" [value]="cliente.id">
+                {{ cliente.nome }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+    <mat-toolbar class="form-buttons">
+        <mat-toolbar-row>
+            <button mat-raised-button type="submit" color="accent">
+                Salvar
+            </button>
+            <button mat-raised-button type="button" (click)="voltar(f)">
+                Voltar
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</form>

@@ -34,7 +34,6 @@
             }} </td>
     </ng-container>
 
-
     <!-- Telefone Column -->
     <ng-container matColumnDef="telefone">
         <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Telefone </th>
@@ -47,19 +46,6 @@
         <td mat-cell class="cell-align-center" *matCellDef="let cliente"> {{ cliente.email }} </td>
     </ng-container>
 
-    <!-- DataNasc Column -->
-    <ng-container matColumnDef="createdAt">
-        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Data de Criação </th>
-        <td mat-cell class="cell-align-center" *matCellDef="let cliente"> {{ cliente.createdAt | date:'dd/MM/yyyy' }}
-        </td>
-    </ng-container>
-
-    <!-- DataNasc Column -->
-    <ng-container matColumnDef="updatedAt">
-        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Data de Atualização </th>
-        <td mat-cell class="cell-align-center" *matCellDef="let cliente"> {{ cliente.updatedAt | date:'dd/MM/yyyy' }}
-        </td>
-    </ng-container>
 
     <!-- Editar Column -->
     <ng-container matColumnDef="editar">

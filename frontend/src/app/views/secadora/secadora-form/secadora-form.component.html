@@ -1,1 +1,29 @@
-<p>secadora-form works!</p>
+<h1>Dados da Secadora</h1>
+<form class="std-form" #f="ngForm" (ngSubmit)="salva(f)">
+
+    <mat-form-field>
+        <mat-label>Numero da Secadora</mat-label>
+        <input matInput type="number" [(ngModel)]="secadora.numero" name="numero" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Marca</mat-label>
+        <input matInput type="string" [(ngModel)]="secadora.marca" name="marca" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Modelo</mat-label>
+        <input matInput type="string" [(ngModel)]="secadora.modelo" name="modelo" required>
+    </mat-form-field>
+
+    <mat-toolbar class="form-buttons">
+        <mat-toolbar-row>
+            <button mat-raised-button type="submit" color="accent">
+                Salvar
+            </button>
+            <button mat-raised-button type="button" (click)="voltar(f)">
+                Voltar
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</form>

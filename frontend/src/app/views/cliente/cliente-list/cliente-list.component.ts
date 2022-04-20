@@ -13,7 +13,7 @@ export class ClienteListComponent implements OnInit {
   clientes: any = []
 
   // Quais colunas serão exibidas na tabela, e em qual ordem
-  displayedColumns: string[] = ['nome', 'cpf', 'rg', 'data_nascimento', 'telefone', 'email', 'createdAt', 'updatedAt', 'editar', 'excluir']
+  displayedColumns: string[] = ['nome', 'cpf', 'rg', 'data_nascimento', 'telefone', 'email', 'editar', 'deletar']
 
   // Injeção de dependência ou inversão de controle
   constructor(
