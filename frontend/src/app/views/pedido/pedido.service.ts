@@ -13,7 +13,9 @@ export class PedidoService {
   constructor(private http: HttpClient) { }
 
   listar() {
-    return this.http.get(this.apiUri).toPromise()
+    return this.http.get(this.apiUri).subscribe((response: any) => {
+      console.log("AEHOOOOOOOOOO")
+    })
   }
 
   deletar(id: string) {

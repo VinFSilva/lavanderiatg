@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt')
+const moment = require('moment')
 module.exports = app => {
 
     const getHash = (password, callback) => {
@@ -19,7 +20,7 @@ module.exports = app => {
                     modelo: req.body.modelo,
                     peso_maximo: req.body.peso_maximo,
                     ativo: req.body.ativo,
-                    createdAt: req.body.createdAt,
+                    createdAt: moment().format(),
                     updatedAt: req.body.updatedAt
 
                 })

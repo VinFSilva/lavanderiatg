@@ -48,6 +48,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+
 
 
 
@@ -76,6 +78,7 @@ import { MatButtonModule } from '@angular/material/button';
     SecadoraFormComponent,
 
 
+
   ],
   imports: [
     RouterModule,
@@ -92,6 +95,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatMomentDateModule,
     MatSelectModule,
     MatOptionModule,
+    MatCardModule,
     MatIconModule,
     MatInputModule,
     MatButtonModule,

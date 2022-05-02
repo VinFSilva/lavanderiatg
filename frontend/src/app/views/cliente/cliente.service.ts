@@ -8,12 +8,12 @@ import { Injectable } from '@angular/core';
 export class ClienteService {
 
   private apiServer: string = environment.apiServer
-  private apiUri: string = this.apiServer + 'cliente'
+  private apiUri: string = this.apiServer
 
   constructor(private http: HttpClient) { }
 
   listar() {
-    return this.http.get(this.apiUri).toPromise()
+    return this.http.get(`${this.apiUri}cliente`);
   }
 
   deletar(id: string) {
@@ -21,18 +21,18 @@ export class ClienteService {
     //return this.http.delete(this.apiServer + 'pedido/' + id)toString.Pomise()
 
     //O método request pode ser usado com qualquer verbo e aceita a passagem de body
-    return this.http.request('DELETE', this.apiUri, { body: { id: id } }).toPromise()
+    return this.http.request('DELETE', this.apiUri, { body: { id: id } });
   }
 
   salva(body: any) {
-    return this.http.post(this.apiUri, body).toPromise()
+    return this.http.post(this.apiUri, body);
   }
 
   listarUm(id: string) {
-    return this.http.get(this.apiUri + '/' + id).toPromise()
+    return this.http.get(this.apiUri + '/' + id);
   }
 
   update(body: any) {
-    return this.http.put(this.apiUri, body).toPromise()
+    return this.http.put(this.apiUri, body);
   }
 }

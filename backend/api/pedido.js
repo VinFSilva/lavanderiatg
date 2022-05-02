@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt')
+const moment = require('moment')
 module.exports = app => {
 
     const getHash = (password, callback) => {
@@ -19,7 +20,7 @@ module.exports = app => {
                     data_entrega: req.body.data_entrega,
                     finalizado: req.body.finalizado,
                     aberto: req.body.aberto,
-                    createdAt: req.body.createdAt,
+                    createdAt: moment().format(),
                     updatedAt: req.body.updatedAt,
                     cliente_id: req.body.cliente_id,
                     itens_id: req.body.itens_id,
@@ -34,6 +35,7 @@ module.exports = app => {
     }
 
     const listar = (req, res) => {
+        console.log("Moment: ", moment().format())
         app.db('pedido')
             .select('*')
             .then(este => res.json(este))
@@ -41,6 +43,7 @@ module.exports = app => {
     }
 
     const listarUm = async (req, res) => {
+        console.log("Listing order")
         await app.db('pedido')
             .select('*')
             .where({ id: req.params.id })

@@ -22,6 +22,7 @@ import { PedidoFormComponent } from './views/pedido/pedido-form/pedido-form.comp
 import { UsersListComponent } from './views/users/users-list/users-list.component';
 
 
+
 const routes: Routes = [
   { path: 'cliente', component: ClienteListComponent },
   { path: 'cliente/novo', component: ClienteFormComponent },
