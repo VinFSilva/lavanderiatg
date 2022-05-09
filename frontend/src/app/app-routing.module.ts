@@ -20,6 +20,8 @@ import { SecadoraFormComponent } from './views/secadora/secadora-form/secadora-f
 import { PedidoListComponent } from './views/pedido/pedido-list/pedido-list.component';
 import { PedidoFormComponent } from './views/pedido/pedido-form/pedido-form.component';
 import { UsersListComponent } from './views/users/users-list/users-list.component';
+import { LoginComponent } from './views/login/login.component';
+import { RegistroComponent } from './views/registro/registro.component';
 
 
 
@@ -57,6 +59,9 @@ const routes: Routes = [
   { path: 'pedido/:id', component: PedidoFormComponent },
 
   { path: 'users', component: UsersListComponent },
+
+  { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegistroComponent },
 
 ];
 

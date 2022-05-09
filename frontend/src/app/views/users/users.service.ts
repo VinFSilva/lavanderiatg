@@ -8,12 +8,12 @@ import { Injectable } from '@angular/core';
 export class UserService {
 
   private apiServer: string = environment.apiServer
-  private apiUri: string = this.apiServer + 'users'
+  private apiUrl: string = this.apiServer + 'users'
 
   constructor(private http: HttpClient) { }
 
   listar() {
-    return this.http.get(this.apiUri).toPromise()
+    return this.http.get(this.apiUrl).toPromise()
   }
 
   deletar(id: string) {
@@ -21,18 +21,18 @@ export class UserService {
     //return this.http.delete(this.apiServer + 'pedido/' + id)toString.Pomise()
 
     //O método request pode ser usado com qualquer verbo e aceita a passagem de body
-    return this.http.request('DELETE', this.apiUri, { body: { id: id } }).toPromise()
+    return this.http.request('DELETE', this.apiUrl, { body: { id: id } }).toPromise()
   }
 
   salva(body: any) {
-    return this.http.post(this.apiUri, body).toPromise()
+    return this.http.post(this.apiUrl, body).toPromise()
   }
 
   listarUm(id: string) {
-    return this.http.get(this.apiUri + '/' + id).toPromise()
+    return this.http.get(this.apiUrl + '/' + id).toPromise()
   }
 
   update(body: any) {
-    return this.http.put(this.apiUri, body).toPromise()
+    return this.http.put(this.apiUrl, body).toPromise()
   }
 }
