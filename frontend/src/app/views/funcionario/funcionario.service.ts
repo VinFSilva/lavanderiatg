@@ -8,12 +8,12 @@ import { Injectable } from '@angular/core';
 export class FuncionarioService {
 
   private apiServer: string = environment.apiServer
-  private apiUrl: string = this.apiServer + 'funcionario'
+  private apiUrl: string = this.apiServer
 
   constructor(private http: HttpClient) { }
 
   listar() {
-    return this.http.get(this.apiUrl);
+    return this.http.get(`${this.apiUrl}/funcionario`);
   }
 
   deletar(id: string) {

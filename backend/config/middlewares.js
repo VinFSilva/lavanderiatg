@@ -4,6 +4,8 @@ const cors = require('cors')
 module.exports = app => {
     app.use(bodyParser.json())
     app.use(cors({
-        origin: '*'
+        credentials: true,
+        origin: 'http://localhost:4200'
     }))
+
 }

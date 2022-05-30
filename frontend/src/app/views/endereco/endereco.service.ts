@@ -8,15 +8,15 @@ import { Injectable } from '@angular/core';
 export class EnderecoService {
 
   private apiServer: string = environment.apiServer
-  private apiUrl: string = this.apiServer + 'endereco'
+  private apiUrl: string = this.apiServer
 
   constructor(private http: HttpClient) { }
 
   listar() {
-    return this.http.get(this.apiUrl);
+    return this.http.get(`${this.apiUrl}/endereco`);
   }
 
-  deletar(id: string) {
+  deletar(id: any) {
     // o metodo delete() nativo do HTTPClient não suporta a passagem de um body para o back-end
     //return this.http.delete(this.apiServer + 'pedido/' + id)toString.Pomise()
 
@@ -28,8 +28,8 @@ export class EnderecoService {
     return this.http.post(this.apiUrl, body);
   }
 
-  listarUm(id: string) {
-    return this.http.get(this.apiUrl + '/' + id);
+  listarUm(id: any) {
+    return this.http.get(`${this.apiUrl}/endereco/${id}`);
   }
 
   update(body: any) {

@@ -9,6 +9,12 @@
 
 <table mat-table [dataSource]="funcionarios" class="mat-elevation-z4">
 
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Id </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let funcionario"> {{ funcionario.id }} </td>
+    </ng-container>
+
     <!-- Nome Column -->
     <ng-container matColumnDef="nome">
         <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Nome </th>

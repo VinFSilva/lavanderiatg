@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt')
+const moment = require('moment')
 module.exports = app => {
 
     const getHash = (password, callback) => {
@@ -23,8 +24,8 @@ module.exports = app => {
                     cargo: req.body.cargo,
                     salario: req.body.salario,
                     ativo: req.body.ativo,
-                    createdAt: req.body.createdAt,
-                    updatedAt: req.body.updatedAt
+                    createdAt: moment().format(),
+                    updatedAt: moment().format()
 
                 })
                 .then(_ => res.status(201).send())
@@ -60,8 +61,7 @@ module.exports = app => {
                 cargo: req.body.cargo,
                 salario: req.body.salario,
                 ativo: req.body.ativo,
-                updatedAt: req.body.updatedAt
-
+                updatedAt: moment().format()
             })
             .then(_ => res.status(204).send())
             .catch(err => res.status(400).json(err))

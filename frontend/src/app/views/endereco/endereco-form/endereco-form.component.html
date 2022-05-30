@@ -3,7 +3,7 @@
 
     <mat-form-field>
         <mat-label>Nome da Rua</mat-label>
-        <input matInput type="number" placeholder="Informe o nome da rua" [(ngModel)]="endereco.rua" name="rua"
+        <input matInput type="string" placeholder="Informe o nome da rua" [(ngModel)]="endereco.rua" name="rua"
             required>
     </mat-form-field>
 
@@ -15,19 +15,19 @@
 
     <mat-form-field>
         <mat-label>Bairro</mat-label>
-        <input matInput type="number" placeholder="Informe o nome do bairro" [(ngModel)]="endereco.bairro" name="bairro"
+        <input matInput type="string" placeholder="Informe o nome do bairro" [(ngModel)]="endereco.bairro" name="bairro"
             required>
     </mat-form-field>
 
     <mat-form-field>
         <mat-label>Cidade</mat-label>
-        <input matInput type="number" placeholder="Informe a cidade" [(ngModel)]="endereco.cidade" name="cidade"
+        <input matInput type="string" placeholder="Informe a cidade" [(ngModel)]="endereco.cidade" name="cidade"
             required>
     </mat-form-field>
 
     <mat-form-field>
         <mat-label>Estado</mat-label>
-        <input matInput type="number" placeholder="Informe o estado" [(ngModel)]="endereco.estado" name="estado"
+        <input matInput type="string" placeholder="Informe o estado" [(ngModel)]="endereco.estado" name="estado"
             required>
     </mat-form-field>
 

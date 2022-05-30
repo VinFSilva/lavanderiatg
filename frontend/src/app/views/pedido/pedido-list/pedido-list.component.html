@@ -12,6 +12,12 @@
     <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Id do pedido </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido.id }} </td>
+    </ng-container>
+
     <!-- Numero Column -->
     <ng-container matColumnDef="numero">
         <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Número do pedido </th>

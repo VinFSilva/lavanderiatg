@@ -8,12 +8,12 @@ import { Injectable } from '@angular/core';
 export class SecadoraService {
 
   private apiServer: string = environment.apiServer
-  private apiUrl: string = this.apiServer + 'secadora'
+  private apiUrl: string = this.apiServer
 
   constructor(private http: HttpClient) { }
 
   listar() {
-    return this.http.get(this.apiUrl);
+    return this.http.get(`${this.apiUrl}/secadora`);
   }
 
   deletar(id: string) {

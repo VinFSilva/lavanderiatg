@@ -28,7 +28,7 @@ export class RegistroComponent implements OnInit {
 
   submit(): void {
     console.log(this.form.getRawValue)
-    this.http.post('http://localhost:4200/api/users', this.form.getRawValue())
+    this.http.post('http://localhost:3000/signup', this.form.getRawValue())
       .subscribe(() => this.router.navigate(['/login']));
   }
 }

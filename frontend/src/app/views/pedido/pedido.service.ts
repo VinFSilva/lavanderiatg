@@ -8,14 +8,12 @@ import { Injectable } from '@angular/core';
 export class PedidoService {
 
   private apiServer: string = environment.apiServer
-  private apiUrl: string = this.apiServer + 'pedido'
+  private apiUrl: string = this.apiServer
 
   constructor(private http: HttpClient) { }
 
   listar() {
-    return this.http.get(this.apiUrl).subscribe((response: any) => {
-      console.log("AEHOOOOOOOOOO")
-    })
+    return this.http.get(`${this.apiUrl}/pedido`)
   }
 
   deletar(id: string) {

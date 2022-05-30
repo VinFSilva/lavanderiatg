@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt')
+const moment = require('moment')
 module.exports = app => {
 
     const getHash = (password, callback) => {
@@ -21,8 +22,8 @@ module.exports = app => {
                     telefone: req.body.telefone,
                     email: req.body.email,
                     ativo: req.body.ativo,
-                    createdAt: req.body.createdAt,
-                    updatedAt: req.body.updatedAt
+                    createdAt: moment().format(),
+                    updatedAt: moment().format()
 
                 })
                 .then(_ => res.status(201).send())
@@ -46,15 +47,16 @@ module.exports = app => {
     }
 
     const update = async (req, res) => {
+        console.log('início update')
         await app.db('cliente')
             .where({ id: req.params.id })
             .update({
-                nome: req.body.name,
+                nome: req.body.nome,
                 rg: req.body.rg,
                 telefone: req.body.telefone,
                 email: req.body.email,
-                ativo: req.body.ativo,
-                updatedAt: req.body.updatedAt
+                ativo: true,
+                updatedAt: moment().format()
 
             })
             .then(_ => res.status(204).send())

@@ -12,22 +12,22 @@ export class LoginComponent implements OnInit {
   form!: FormGroup
 
   constructor(
-    // private formBuilder: FormBuilder,
-    // private http: HttpClient,
-    // private router: Router,
+    private formBuilder: FormBuilder,
+    private http: HttpClient,
+    private router: Router,
   ) {
   }
 
   ngOnInit(): void {
-    /*this.form = this.formBuilder.group({
+    this.form = this.formBuilder.group({
       email: '',
       password: ''
-    });*/
+    });
   }
 
-  /* submit(): void {
-     this.http.post('http://localhost:4200/signin', this.form.getRawValue(), {
-       withCredentials: true
-     }).subscribe(() => this.router.navigate(['/login']));
-   }*/
+  submit(): void {
+    this.http.post('http://localhost:3000/signin', this.form.getRawValue(), {
+      withCredentials: true
+    }).subscribe(() => this.router.navigate(['/pedido']));
+  }
 }
