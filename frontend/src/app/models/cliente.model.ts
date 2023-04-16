@@ -3,7 +3,6 @@ export class Cliente {
     nome?: string;
     cpf?: string;
     rg?: string;
-    published?: boolean;
     data_nascimento?: Date;
     telefone?: string;
     email?: string;

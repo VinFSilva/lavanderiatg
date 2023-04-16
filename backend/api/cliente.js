@@ -9,10 +9,8 @@ module.exports = app => {
     }
 
     const salva = (req, res) => {
-
         getHash(req.body.pass, hash => {
             const password = hash
-
             app.db('cliente')
                 .insert({
                     nome: req.body.nome,
@@ -47,7 +45,6 @@ module.exports = app => {
     }
 
     const update = async (req, res) => {
-        console.log('início update')
         await app.db('cliente')
             .where({ id: req.params.id })
             .update({
@@ -70,6 +67,7 @@ module.exports = app => {
             .then(user => res.json({ user, message: "Cliente deletado com sucesso!" }))
             .catch(err => res.status(400).json(err))
     }
+    
 
     return { salva, listar, listarUm, update, deletar }
 }

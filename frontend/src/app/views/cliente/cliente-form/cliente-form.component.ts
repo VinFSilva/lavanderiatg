@@ -51,18 +51,19 @@ export class ClienteFormComponent implements OnInit {
           await this.clienteSrv.update(this.cliente) // Atualização
         }
         else {
-          await this.clienteSrv.salva(this.cliente)
+          await this.clienteSrv.salva(form.value)
+          //await this.clienteSrv.salva(this.cliente)
         }
         // 2) Dar o feedback para o usuário
         this.snackBar.open('Dados salvos com sucesso.', '=D',
-          { duration: 5000 })
+          { duration: 6000 })
         // 3) Voltar ao componente de listagem
         this.location.back()
       }
       catch (erro) {
         console.log(erro)
         this.snackBar.open('ERRO: não foi possível salvar os dados.', '=(',
-          { duration: 5000 })
+          { duration: 6000 })
       }
 
     }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EnderecoService } from '../endereco.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ClienteService } from '../../cliente/cliente.service';
 
 @Component({
   selector: 'app-endereco-list',

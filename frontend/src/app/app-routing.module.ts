@@ -7,10 +7,8 @@ import { ClienteListComponent } from './views/cliente/cliente-list/cliente-list.
 import { ClienteFormComponent } from './views/cliente/cliente-form/cliente-form.component';
 import { EnderecoListComponent } from './views/endereco/endereco-list/endereco-list.component';
 import { EnderecoFormComponent } from './views/endereco/endereco-form/endereco-form.component';
-import { FuncionarioListComponent } from './views/funcionario/funcionario-list/funcionario-list.component';
-import { FuncionarioFormComponent } from './views/funcionario/funcionario-form/funcionario-form.component';
-import { ItensListComponent } from './views/itens/itens-list/itens-list.component';
-import { ItensFormComponent } from './views/itens/itens-form/itens-form.component';
+import { ItemListComponent } from './views/item/item-list/item-list.component';
+import { ItemFormComponent } from './views/item/item-form/item-form.component';
 import { MaquinaLavarListComponent } from './views/maquina-lavar/maquina-lavar-list/maquina-lavar-list.component';
 import { MaquinaLavarFormComponent } from './views/maquina-lavar/maquina-lavar-form/maquina-lavar-form.component';
 import { PranchaPassarListComponent } from './views/prancha-passar/prancha-passar-list/prancha-passar-list.component';
@@ -19,7 +17,7 @@ import { SecadoraListComponent } from './views/secadora/secadora-list/secadora-l
 import { SecadoraFormComponent } from './views/secadora/secadora-form/secadora-form.component';
 import { PedidoListComponent } from './views/pedido/pedido-list/pedido-list.component';
 import { PedidoFormComponent } from './views/pedido/pedido-form/pedido-form.component';
-import { UsersListComponent } from './views/users/users-list/users-list.component';
+import { UserListComponent } from './views/user/user-list/user-list.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegistroComponent } from './views/registro/registro.component';
 
@@ -34,13 +32,9 @@ const routes: Routes = [
   { path: 'endereco/novo', component: EnderecoFormComponent },
   { path: 'endereco/:id', component: EnderecoFormComponent },
 
-  { path: 'funcionario', component: FuncionarioListComponent },
-  { path: 'funcionario/novo', component: FuncionarioFormComponent },
-  { path: 'funcionario/:id', component: FuncionarioFormComponent },
-
-  { path: 'itens', component: ItensListComponent },
-  { path: 'itens/novo', component: ItensFormComponent },
-  { path: 'itens/:id', component: ItensFormComponent },
+  { path: 'item', component: ItemListComponent },
+  { path: 'item/novo', component: ItemFormComponent },
+  { path: 'item/:id', component: ItemFormComponent },
 
   { path: 'maquina-lavar', component: MaquinaLavarListComponent },
   { path: 'maquina-lavar/novo', component: MaquinaLavarFormComponent },
@@ -58,7 +52,7 @@ const routes: Routes = [
   { path: 'pedido/novo', component: PedidoFormComponent },
   { path: 'pedido/:id', component: PedidoFormComponent },
 
-  { path: 'users', component: UsersListComponent },
+  { path: 'user', component: UserListComponent },
 
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },

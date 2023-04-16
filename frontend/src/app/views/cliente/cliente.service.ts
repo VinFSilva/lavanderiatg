@@ -1,21 +1,23 @@
 import { HttpClient } from '@angular/common/http';
-//import { environment } from '../../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Cliente } from 'src/app/models/cliente.model';
-const baseUrl = 'http://localhost:3000/cliente'
+import { firstValueFrom } from 'rxjs';
+//import { Observable } from 'rxjs';
+//import { Cliente } from 'src/app/models/cliente.model';
+//const baseUrl = 'http://localhost:3000/cliente'
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
 
-  //private apiServer: string = environment.apiServer
-  //private apiUrl: string = this.apiServer
+  private apiServer: string = environment.apiServer
+  private apiUrl: string = this.apiServer
 
   constructor(private http: HttpClient) { }
 
+
   listar() {
-    return this.http.get(baseUrl);
+    return firstValueFrom(this.http.get(`${this.apiUrl}/cliente`));
   }
 
   deletar(id: string) {
@@ -24,17 +26,26 @@ export class ClienteService {
 
     //O método request pode ser usado com qualquer verbo e aceita a passagem de body
     //return this.http.request('DELETE', this.apiUrl, { body: { id: id } });
+    return firstValueFrom(this.http.delete(`${this.apiUrl}/cliente/${id}`))
   }
 
   salva(body: any) {
-    //return this.http.post(this.apiUrl, body);
+    return firstValueFrom(this.http.post(this.apiUrl, body));
   }
 
-  listarUm(id: any): Observable<Cliente> {
-    return this.http.get(`${baseUrl}/${id}`);
+  listarUm(id: string) {
+    return firstValueFrom(this.http.get(`${this.apiUrl}/cliente/${id}`));
   }
 
   update(body: any) {
-    // return this.http.put(this.apiUrl, body);
+    return firstValueFrom(this.http.put(this.apiUrl, body));
   }
 }
+  /*listarUm(id: any): Observable<Cliente> {
+ return this.http.get(`${baseUrl}/${id}`);
+}
+
+update(id: string, body: any): Observable<Cliente> {
+  return this.http.put(`${baseUrl}/${id}`, body);
+}
+}*/

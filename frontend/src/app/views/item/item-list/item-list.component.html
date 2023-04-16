@@ -1,13 +1,13 @@
 <h1>Detalhes dos itens</h1>
 
 <mat-toolbar class="new-item">
-  <a mat-raised-button [routerLink]="['/itens/novo']">
+  <a mat-raised-button [routerLink]="['/item/novo']">
     <mat-icon>add_circle</mat-icon>
     Novos itens
   </a>
 </mat-toolbar>
 
-<table mat-table [dataSource]="itens" class="mat-elevation-z4">
+<table mat-table [dataSource]="items" class="mat-elevation-z4">
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
@@ -15,27 +15,33 @@
   <!-- Numero Column -->
   <ng-container matColumnDef="numero_pecas">
     <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Número de peças </th>
-    <td mat-cell class="cell-align-center" *matCellDef="let itens"> {{ itens.numero_pecas }} </td>
+    <td mat-cell class="cell-align-center" *matCellDef="let item"> {{ item.numero_pecas }} </td>
   </ng-container>
 
   <!-- Peso Column -->
   <ng-container matColumnDef="peso_total">
     <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Peso Total </th>
-    <td mat-cell class="cell-align-center" *matCellDef="let itens"> {{ itens.peso_total }} </td>
+    <td mat-cell class="cell-align-center" *matCellDef="let item"> {{ item.peso_total }} </td>
+  </ng-container>
+
+  <!-- Observações Column -->
+  <ng-container matColumnDef="observacoes">
+    <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Observações </th>
+    <td mat-cell class="cell-align-center" *matCellDef="let item"> {{ item.observacoes }} </td>
   </ng-container>
 
   <!-- Cliente Column -->
   <ng-container matColumnDef="cliente">
     <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Cliente </th>
-    <td mat-cell class="cell-align-center" *matCellDef="let itens"> {{ itens.cliente?.nome }} </td>
+    <td mat-cell class="cell-align-center" *matCellDef="let item"> {{ item.cliente?.nome }} </td>
   </ng-container>
 
 
   <!-- Editar Column -->
   <ng-container matColumnDef="editar">
     <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Editar</th>
-    <td mat-cell class="cell-align-center" *matCellDef="let itens">
-      <a mat-raised-button color="accent" title="Editar" [routerLink]="['/itens', itens.id]">
+    <td mat-cell class="cell-align-center" *matCellDef="let item">
+      <a mat-raised-button color="accent" title="Editar" [routerLink]="['/item', item.id]">
         <mat-icon>edit</mat-icon>
       </a>
     </td>
@@ -44,8 +50,8 @@
   <!-- Excluir Column -->
   <ng-container matColumnDef="deletar">
     <th mat-header-cell class="cell-align-center" *matHeaderCellDef>Excluir</th>
-    <td mat-cell class="cell-align-center" *matCellDef="let itens">
-      <button mat-raised-button color="warn" title="Deletar" (click)="deletar(itens.id)">
+    <td mat-cell class="cell-align-center" *matCellDef="let item">
+      <button mat-raised-button color="warn" title="Deletar" (click)="deletar(item.id)">
         <mat-icon>delete_forever</mat-icon>
       </button>
     </td>

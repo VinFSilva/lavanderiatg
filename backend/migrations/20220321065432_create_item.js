@@ -1,5 +1,5 @@
 exports.up = function (knex) {
-    return knex.schema.createTable('itens', table => {
+    return knex.schema.createTable('item', table => {
         table.increments('id').primary()
         table.integer('numero_pecas').notNull()
         table.integer('peso_total').notNull()
@@ -13,5 +13,5 @@ exports.up = function (knex) {
 };
 
 exports.down = function (knex) {
-    return knex.schema.dropTable('itens')
+    return knex.schema.dropTable('item')
 };

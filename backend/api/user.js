@@ -13,7 +13,7 @@ module.exports = app => {
         getHash(req.body.password, hash => {
             const password = hash
 
-            app.db('users')
+            app.db('user')
                 .insert({
                     name: req.body.name,
                     email: req.body.email,
@@ -25,13 +25,13 @@ module.exports = app => {
     }
 
     const listar = (req, res) => {
-        app.db('users')
+        app.db('user')
             .select('*')
             .then(este => res.json(este))
             .catch(err => res.json(err))
     }
     const listarUm = async (req, res) => {
-        await app.db('users')
+        await app.db('user')
             .where({ id: req.params.id })
             .first()
             .then(user => res.status(200).json(user))
@@ -39,7 +39,7 @@ module.exports = app => {
     }
 
     const update = async (req, res) => {
-        await app.db('users')
+        await app.db('user')
             .where({ id: req.params.id })
             .update({
                 name: req.body.name,
@@ -51,7 +51,7 @@ module.exports = app => {
     }
 
     const deletar = async (req, res) => {
-        await app.db('users')
+        await app.db('user')
             .where({ id: req.params.id })
             .delete()
             .then(user => res.json({ user, message: "Usuário deletado com sucesso!" }))

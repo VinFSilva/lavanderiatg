@@ -17,10 +17,8 @@ const maskConfig: Partial<IConfig> = {
 
 import { EnderecoListComponent } from './views/endereco/endereco-list/endereco-list.component';
 import { EnderecoFormComponent } from './views/endereco/endereco-form/endereco-form.component';
-import { FuncionarioListComponent } from './views/funcionario/funcionario-list/funcionario-list.component';
-import { FuncionarioFormComponent } from './views/funcionario/funcionario-form/funcionario-form.component';
-import { ItensListComponent } from './views/itens/itens-list/itens-list.component';
-import { ItensFormComponent } from './views/itens/itens-form/itens-form.component';
+import { ItemListComponent } from './views/item/item-list/item-list.component';
+import { ItemFormComponent } from './views/item/item-form/item-form.component';
 import { MaquinaLavarListComponent } from './views/maquina-lavar/maquina-lavar-list/maquina-lavar-list.component';
 import { MaquinaLavarFormComponent } from './views/maquina-lavar/maquina-lavar-form/maquina-lavar-form.component';
 import { PedidoListComponent } from './views/pedido/pedido-list/pedido-list.component';
@@ -28,7 +26,7 @@ import { PedidoFormComponent } from './views/pedido/pedido-form/pedido-form.comp
 import { PranchaPassarListComponent } from './views/prancha-passar/prancha-passar-list/prancha-passar-list.component';
 import { PranchaPassarFormComponent } from './views/prancha-passar/prancha-passar-form/prancha-passar-form.component';
 import { SecadoraListComponent } from './views/secadora/secadora-list/secadora-list.component';
-import { UsersListComponent } from './views/users/users-list/users-list.component';
+import { UserListComponent } from './views/user/user-list/user-list.component';
 import { SecadoraFormComponent } from './views/secadora/secadora-form/secadora-form.component';
 import { MatListModule } from '@angular/material/list';
 import { ClienteFormComponent } from './views/cliente/cliente-form/cliente-form.component';
@@ -51,6 +49,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { RegistroComponent } from './views/registro/registro.component';
 import { LoginComponent } from './views/login/login.component';
+import { ClienteService } from './views/cliente/cliente.service';
+import { EnderecoService } from './views/endereco/endereco.service';
+import { ItemService } from './views/item/item.service';
+import { MaquinaLavarService } from './views/maquina-lavar/maquina-lavar.service';
+import { PedidoService } from './views/pedido/pedido.service';
+import { PranchaPassarService } from './views/prancha-passar/prancha-passar.service';
+import { SecadoraService } from './views/secadora/secadora.service';
+import { UserService } from './views/user/user.service';
 
 
 
@@ -59,21 +65,19 @@ import { LoginComponent } from './views/login/login.component';
   declarations: [
     AppComponent,
     EnderecoListComponent,
-    FuncionarioListComponent,
-    ItensListComponent,
+    ItemListComponent,
     MaquinaLavarListComponent,
     PedidoListComponent,
     PranchaPassarListComponent,
     SecadoraListComponent,
-    UsersListComponent,
+    UserListComponent,
     HeaderComponent,
     FooterComponent,
     NavComponent,
     ClienteFormComponent,
     ClienteListComponent,
     EnderecoFormComponent,
-    FuncionarioFormComponent,
-    ItensFormComponent,
+    ItemFormComponent,
     MaquinaLavarFormComponent,
     PranchaPassarFormComponent,
     PedidoFormComponent,
@@ -110,7 +114,17 @@ import { LoginComponent } from './views/login/login.component';
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
     { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
-    { provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } }]
+    { provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } },
+    ClienteService,
+    EnderecoService,
+    ItemService,
+    MaquinaLavarService,
+    PedidoService,
+    PranchaPassarService,
+    SecadoraService,
+    UserService
+  ]
+
   ,
   bootstrap: [AppComponent]
 })

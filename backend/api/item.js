@@ -13,7 +13,7 @@ module.exports = app => {
         getHash(req.body.pass, hash => {
             const password = hash
 
-            app.db('itens')
+            app.db('item')
                 .insert({
                     numero_pecas: req.body.numero_pecas,
                     peso_total: req.body.peso_total,
@@ -30,14 +30,14 @@ module.exports = app => {
     }
 
     const listar = (req, res) => {
-        app.db('itens')
+        app.db('item')
             .select('*')
             .then(este => res.json(este))
             .catch(err => res.json(err))
     }
 
     const listarUm = async (req, res) => {
-        await app.db('itens')
+        await app.db('item')
             .where({ id: req.params.id })
             .first()
             .then(user => res.status(200).json(user))
@@ -45,7 +45,7 @@ module.exports = app => {
     }
 
     const update = async (req, res) => {
-        await app.db('itens')
+        await app.db('item')
             .where({ id: req.params.id })
             .update({
                 numero_pecas: req.body.numero_pecas,
@@ -61,7 +61,7 @@ module.exports = app => {
     }
 
     const deletar = async (req, res) => {
-        await app.db('itens')
+        await app.db('item')
             .where({ id: req.params.id })
             .delete()
             .then(user => res.json({ user, message: "Itens deletados com sucesso!" }))

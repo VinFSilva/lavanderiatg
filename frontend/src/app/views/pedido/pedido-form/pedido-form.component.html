@@ -41,10 +41,10 @@
     </mat-form-field>
 
     <mat-form-field>
-        <mat-label>Itens</mat-label>
-        <mat-select [(ngModel)]="pedido.itens_id" name="itens" required>
-            <mat-option *ngFor="let itens of itens" [value]="itens.id">
-                {{ itens.id }}
+        <mat-label>items</mat-label>
+        <mat-select [(ngModel)]="pedido.item_id" name="item" required>
+            <mat-option *ngFor="let item of items" [value]="item.id">
+                {{ item.id }}
             </mat-option>
         </mat-select>
     </mat-form-field>

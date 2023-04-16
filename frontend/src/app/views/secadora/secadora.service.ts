@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,26 +14,22 @@ export class SecadoraService {
   constructor(private http: HttpClient) { }
 
   listar() {
-    return this.http.get(`${this.apiUrl}/secadora`);
+    return firstValueFrom(this.http.get(`${this.apiUrl}/secadora`));
   }
 
-  deletar(id: string) {
-    // o metodo delete() nativo do HTTPClient não suporta a passagem de um body para o back-end
-    //return this.http.delete(this.apiServer + 'pedido/' + id)toString.Pomise()
-
-    //O método request pode ser usado com qualquer verbo e aceita a passagem de body
-    return this.http.request('DELETE', this.apiUrl, { body: { id: id } });
+  deletar(id: any) {
+    return firstValueFrom(this.http.delete(`${this.apiUrl}/secadora/${id}`));
   }
 
   salva(body: any) {
-    return this.http.post(this.apiUrl, body);
+    return firstValueFrom(this.http.post(this.apiUrl, body));
   }
 
   listarUm(id: string) {
-    return this.http.get(this.apiUrl + '/' + id);
+    return firstValueFrom(this.http.get(`${this.apiUrl}/secadora/${id}`));
   }
 
   update(body: any) {
-    return this.http.put(this.apiUrl, body);
+    return firstValueFrom(this.http.put(this.apiUrl, body));
   }
 }

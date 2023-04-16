@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-users-list',
+  selector: 'app-user-list',
   template: `
     <p>
-      users-list works!
+      user-list works!
     </p>
   `,
   styles: [
   ]
 })
-export class UsersListComponent implements OnInit {
+export class UserListComponent implements OnInit {
 
   constructor() { }
 

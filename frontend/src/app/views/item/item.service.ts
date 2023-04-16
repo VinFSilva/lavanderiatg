@@ -2,10 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
-export class EnderecoService {
+export class ItemService {
 
   private apiServer: string = environment.apiServer
   private apiUrl: string = this.apiServer
@@ -13,11 +14,11 @@ export class EnderecoService {
   constructor(private http: HttpClient) { }
 
   listar() {
-    return firstValueFrom(this.http.get(`${this.apiUrl}/endereco`));
+    return firstValueFrom(this.http.get(`${this.apiUrl}/item`));
   }
 
   deletar(id: any) {
-    return firstValueFrom(this.http.delete(`${this.apiUrl}/endereco/${id}`));
+    return firstValueFrom(this.http.delete(`${this.apiUrl}/item/${id}`));
   }
 
   salva(body: any) {
@@ -25,7 +26,7 @@ export class EnderecoService {
   }
 
   listarUm(id: string) {
-    return firstValueFrom(this.http.get(`${this.apiUrl}/endereco/${id}`));
+    return firstValueFrom(this.http.get(`${this.apiUrl}/item/${id}`));
   }
 
   update(body: any) {

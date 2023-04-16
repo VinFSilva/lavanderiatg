@@ -23,7 +23,7 @@ module.exports = app => {
                     createdAt: moment().format(),
                     updatedAt: moment().format(),
                     cliente_id: req.body.cliente_id,
-                    itens_id: req.body.itens_id,
+                    item_id: req.body.item_id,
                     maquina_lavar_id: req.body.maquina_lavar_id,
                     secadora_id: req.body.secadora_id,
                     prancha_passar_id: req.body.prancha_passar_id
@@ -35,7 +35,6 @@ module.exports = app => {
     }
 
     const listar = (req, res) => {
-        console.log("Moment: ", moment().format())
         app.db('pedido')
             .select('*')
             .then(este => res.json(este))

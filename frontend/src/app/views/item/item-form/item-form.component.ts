@@ -1,5 +1,5 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ItensService } from './../itens.service';
+import { ItemService } from '../item.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -8,22 +8,22 @@ import { Location } from '@angular/common';
 
 
 @Component({
-  selector: 'app-itens-form',
-  templateUrl: './itens-form.component.html',
-  styleUrls: ['./itens-form.component.scss']
+  selector: 'app-item-form',
+  templateUrl: './item-form.component.html',
+  styleUrls: ['./item-form.component.scss']
 })
-export class ItensFormComponent implements OnInit {
+export class ItemFormComponent implements OnInit {
 
 
   //Variável para armazenar dados do registro
-  itens: any = {} //objeto vazio, nome no singular
+  item: any = {} //objeto vazio, nome no singular
 
-  title: string = 'Novo itens'
+  title: string = 'Novo items'
 
   //variaveis para armazenar as listagens de objetos relacionados
   clientes: any = [] //vetor vazio, nome no plural
   constructor(
-    private itensSrv: ItensService,
+    private itemSrv: ItemService,
     //services das entidades relacionadas
     private clienteSrv: ClienteService,
     private snackBar: MatSnackBar,
@@ -37,7 +37,7 @@ export class ItensFormComponent implements OnInit {
       try {
         //1) Acionar o backend para buscar esse registro
         //e disponibilizá-lo para edição
-        this.itens = await this.itensSrv.listarUm(this.actRoute.snapshot.params['id'])
+        this.item = await this.itemSrv.listarUm(this.actRoute.snapshot.params['id'])
       }
       catch (erro) {
         console.log(erro)
@@ -65,11 +65,11 @@ export class ItensFormComponent implements OnInit {
         //1)Salvar os dados no back-end  
         //Se o itens já existir(caso de edição), ele ja terá
         //o atributo id  
-        if (this.itens.id) {
-          await this.itensSrv.update(this.itens) //atualização
+        if (this.item.id) {
+          await this.itemSrv.update(this.item) //atualização
         }
         else {
-          await this.itensSrv.salva(this.itens)
+          await this.itemSrv.salva(this.item)
         }
         this.snackBar.open('Dados salvos com sucesso', '=D',
           { duration: 7000 })

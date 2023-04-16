@@ -37,7 +37,7 @@ export class SecadoraListComponent implements OnInit {
       }
       catch (erro) {
         // 3) Dar feedback de erro para o usuário
-        this.snackBar.open('ERRO: não foi possível excluir este item.', '=(!', {
+        this.snackBar.open('ERRO: não foi possível excluir este item.', '=(', {
           duration: 7000
         })
         console.log(erro)

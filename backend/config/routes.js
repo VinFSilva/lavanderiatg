@@ -1,16 +1,17 @@
 module.exports = app => {
-    app.post('/signup', app.api.users.salva)
-    app.post('/signin', app.api.auth.signin,)
+    app.post('/signup', app.api.user.salva)
+    app.post('/signin', app.api.auth.signin)
 
-    app.route('/users')
+    app.route('/user')
         //.all(app.config.passport.authenticate())
-        .get(app.api.users.listar)
+        .get(app.api.user.listar)
 
-    app.route('/users/:id')
+    app.route('/user/:id')
         //.all(app.config.passport.authenticate())
-        .get(app.api.users.listarUm)
-        .put(app.api.users.update)
-        .delete(app.api.users.deletar)
+        .get(app.api.user.listarUm)
+        .put(app.api.user.update)
+        .delete(app.api.user.deletar)
+
 
     app.route('/cliente')
         //.all(app.config.passport.authenticate())
@@ -41,23 +42,17 @@ module.exports = app => {
         .post(app.api.funcionario.salva)
         .get(app.api.funcionario.listar)
 
-    app.route('/funcionario/:id')
-        //.all(app.config.passport.authenticate())
-        .get(app.api.funcionario.listarUm)
-        .put(app.api.funcionario.update)
-        .delete(app.api.funcionario.deletar)
 
-
-    app.route('/itens')
+    app.route('/item')
         //.all(app.config.passport.authenticate())
-        .post(app.api.itens.salva)
-        .get(app.api.itens.listar)
+        .post(app.api.item.salva)
+        .get(app.api.item.listar)
 
-    app.route('/itens/:id')
+    app.route('/item/:id')
         //.all(app.config.passport.authenticate())
-        .get(app.api.itens.listarUm)
-        .put(app.api.itens.update)
-        .delete(app.api.itens.deletar)
+        .get(app.api.item.listarUm)
+        .put(app.api.item.update)
+        .delete(app.api.item.deletar)
 
 
     app.route('/maquina_lavar')
