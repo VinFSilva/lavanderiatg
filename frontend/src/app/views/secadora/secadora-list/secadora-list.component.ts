@@ -13,7 +13,7 @@ export class SecadoraListComponent implements OnInit {
   secadoras: any = []
 
   // Quais colunas serão exibidas na tabela, e em qual ordem
-  displayedColumns: string[] = ['numero', 'marca', 'modelo', 'editar', 'deletar']
+  displayedColumns: string[] = ['numero', 'marca', 'modelo','peso_maximo', 'editar', 'deletar']
 
   // Injeção de dependência ou inversão de controle
   constructor(

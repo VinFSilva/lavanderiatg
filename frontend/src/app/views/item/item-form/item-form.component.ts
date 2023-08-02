@@ -18,7 +18,7 @@ export class ItemFormComponent implements OnInit {
   //Variável para armazenar dados do registro
   item: any = {} //objeto vazio, nome no singular
 
-  title: string = 'Novo items'
+  title: string = 'Novo item'
 
   //variaveis para armazenar as listagens de objetos relacionados
   clientes: any = [] //vetor vazio, nome no plural
@@ -32,12 +32,10 @@ export class ItemFormComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    //Verifica se existe o parâmetro id na URL (rota)
     if (this.actRoute.snapshot.params['id']) {
       try {
-        //1) Acionar o backend para buscar esse registro
-        //e disponibilizá-lo para edição
         this.item = await this.itemSrv.listarUm(this.actRoute.snapshot.params['id'])
+        this.title = "Editando itens"
       }
       catch (erro) {
         console.log(erro)
@@ -45,7 +43,6 @@ export class ItemFormComponent implements OnInit {
           '=(', { duration: 7000 })
       }
     }
-    // carrega as listagens dos dados relacionados
     this.carregarDados()
   }
 

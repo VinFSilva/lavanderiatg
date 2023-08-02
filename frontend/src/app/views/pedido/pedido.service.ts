@@ -26,7 +26,7 @@ export class PedidoService {
   }
 
   salva(body: any) {
-    return firstValueFrom(this.http.post(this.apiUrl, body));
+    return firstValueFrom(this.http.post(`${this.apiUrl}/pedido`, body));
   }
 
   listarUm(id: string) {
@@ -34,6 +34,6 @@ export class PedidoService {
   }
 
   update(body: any) {
-    return firstValueFrom(this.http.put(this.apiUrl, body));
+    return firstValueFrom(this.http.put(`${this.apiUrl}/pedido/${body.id}`, body));
   }
 }

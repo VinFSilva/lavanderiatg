@@ -13,17 +13,21 @@ module.exports = app => {
             .first()
 
         if (user) {
+            console.log("usuario encontrado", user)
             bcrypt.compare(req.body.password, user.password, (err, isMatch) => {
                 if (err || !isMatch) {
                     return res.status(401).send("Senha Incorreta")
                 }
 
                 const payload = { id: user.id }
+                console.log("payload", payload)
                 res.json({
                     name: user.name,
                     email: user.email,
                     token: jwt.encode(payload, authSecret)
                 })
+
+                console.log("token", jwt.encode(payload, authSecret))
             })
         } else {
             res.status(401).send('Usuário não cadastrado!')

@@ -22,7 +22,7 @@ export class SecadoraService {
   }
 
   salva(body: any) {
-    return firstValueFrom(this.http.post(this.apiUrl, body));
+    return firstValueFrom(this.http.post(`${this.apiUrl}/secadora`, body));
   }
 
   listarUm(id: string) {
@@ -30,6 +30,6 @@ export class SecadoraService {
   }
 
   update(body: any) {
-    return firstValueFrom(this.http.put(this.apiUrl, body));
+    return firstValueFrom(this.http.put(`${this.apiUrl}/secadora/${body.id}`, body));
   }
 }

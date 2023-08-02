@@ -19,7 +19,7 @@ module.exports = app => {
                     data_nascimento: req.body.data_nascimento,
                     telefone: req.body.telefone,
                     email: req.body.email,
-                    ativo: req.body.ativo,
+                    ativo: true,
                     createdAt: moment().format(),
                     updatedAt: moment().format()
 

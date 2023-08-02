@@ -32,14 +32,11 @@ export class EnderecoFormComponent implements OnInit {
     ) { }
 
     async ngOnInit() {
-        //Verifica se existe o parâmetro id na URL (rota)
         if (this.actRoute.snapshot.params['id']) {
             try {
-                //1) Acionar o backend para buscar esse registro
-                //e disponibilizá-lo para edição
                 this.endereco = await this.enderecoSrv.listarUm(this.actRoute.snapshot.params['id'])
-                //2) Mudar o título da página
                 this.title = 'Editando endereco'
+
             }
             catch (erro) {
                 console.log(erro)
@@ -47,7 +44,6 @@ export class EnderecoFormComponent implements OnInit {
                     '=(', { duration: 7000 })
             }
         }
-        // carrega as listagens dos dados relacionados
         this.carregarDados()
     }
 

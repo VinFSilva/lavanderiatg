@@ -7,8 +7,6 @@ import { ClienteListComponent } from './views/cliente/cliente-list/cliente-list.
 import { ClienteFormComponent } from './views/cliente/cliente-form/cliente-form.component';
 import { EnderecoListComponent } from './views/endereco/endereco-list/endereco-list.component';
 import { EnderecoFormComponent } from './views/endereco/endereco-form/endereco-form.component';
-import { ItemListComponent } from './views/item/item-list/item-list.component';
-import { ItemFormComponent } from './views/item/item-form/item-form.component';
 import { MaquinaLavarListComponent } from './views/maquina-lavar/maquina-lavar-list/maquina-lavar-list.component';
 import { MaquinaLavarFormComponent } from './views/maquina-lavar/maquina-lavar-form/maquina-lavar-form.component';
 import { PranchaPassarListComponent } from './views/prancha-passar/prancha-passar-list/prancha-passar-list.component';
@@ -31,10 +29,6 @@ const routes: Routes = [
   { path: 'endereco', component: EnderecoListComponent },
   { path: 'endereco/novo', component: EnderecoFormComponent },
   { path: 'endereco/:id', component: EnderecoFormComponent },
-
-  { path: 'item', component: ItemListComponent },
-  { path: 'item/novo', component: ItemFormComponent },
-  { path: 'item/:id', component: ItemFormComponent },
 
   { path: 'maquina-lavar', component: MaquinaLavarListComponent },
   { path: 'maquina-lavar/novo', component: MaquinaLavarFormComponent },

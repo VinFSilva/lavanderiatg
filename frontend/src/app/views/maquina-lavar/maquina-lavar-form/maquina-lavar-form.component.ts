@@ -31,7 +31,7 @@ export class MaquinaLavarFormComponent implements OnInit {
         // 1) Acionar o back-end para buscar esse registro
         // e disponibilizá-lo para edição        
         this.maquina_lavar = await this.maquina_lavarSrv.listarUm(this.actRoute.snapshot.params['id'])
-
+        this.title = "Editando máquina de lavar"
       }
       catch (erro) {
         console.log(erro)

@@ -13,8 +13,8 @@ export class PedidoListComponent implements OnInit {
   pedidos: any = []
 
   // Quais colunas serão exibidas na tabela, e em qual ordem
-  displayedColumns: string[] = ['id', 'numero', 'data_coleta', 'data_entrega', 'finalizado', 'cliente', 'item', 'maquina_lavar', 'secadora', 'prancha_passar',
-    'editar', 'deletar'];
+  displayedColumns: string[] = ['id', 'numero', 'data_coleta', 'data_entrega', 'finalizado', 'numero_pecas', 
+  'peso_total', 'observacoes', 'cliente', 'maquina_lavar', 'secadora', 'prancha_passar','editar', 'deletar'];
 
   // Injeção de dependência ou inversão de controle
   constructor(

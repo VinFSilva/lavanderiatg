@@ -5,7 +5,6 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ClienteService } from 'src/app/views/cliente/cliente.service';
 import { Location } from '@angular/common';
-import { ItemService } from '../../item/item.service';
 import { MaquinaLavarService } from '../../maquina-lavar/maquina-lavar.service';
 import { PranchaPassarService } from '../../prancha-passar/prancha-passar.service';
 import { SecadoraService } from '../../secadora/secadora.service';
@@ -26,7 +25,6 @@ export class PedidoFormComponent implements OnInit {
 
   //variaveis para armazenar as listagens de objetos relacionados
   clientes: any = [] //vetor vazio, nome no plural
-  items: any = []
   maquinas_lavar: any = []
   pranchas_passar: any = []
   secadoras: any = []
@@ -34,7 +32,6 @@ export class PedidoFormComponent implements OnInit {
     private pedidoSrv: PedidoService,
     //services das entidades relacionadas
     private clienteSrv: ClienteService,
-    private itemSrv: ItemService,
     private maquina_lavarSrv: MaquinaLavarService,
     private prancha_passarSrv: PranchaPassarService,
     private secadora: SecadoraService,
@@ -64,7 +61,6 @@ export class PedidoFormComponent implements OnInit {
   async carregarDados() {
     try {
       this.clientes = await this.clienteSrv.listar()
-      this.items = await this.itemSrv.listar()
       this.maquinas_lavar = await this.maquina_lavarSrv.listar()
       this.pranchas_passar = await this.prancha_passarSrv.listar()
       this.secadoras = await this.secadora.listar()

@@ -25,7 +25,7 @@ export class ClienteFormComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    console.log(this.actRoute.snapshot.params['id'])// Verifica se existe o parâmetro id na URL (rota)
+    // Verifica se existe o parâmetro id na URL (rota)
     if (this.actRoute.snapshot.params['id']) {
       try {
         // 1) Acionar o back-end para buscar esse registro
@@ -44,15 +44,12 @@ export class ClienteFormComponent implements OnInit {
   async salva(form: NgForm) {
     if (form.valid) {
       try {
-        // 1) Salvar os dados no back-end
-        // Se o cliente já existir (caso de edição), ele já terá
-        // o atributo _id
         if (this.cliente.id) {
           await this.clienteSrv.update(this.cliente) // Atualização
         }
         else {
-          await this.clienteSrv.salva(form.value)
-          //await this.clienteSrv.salva(this.cliente)
+          await this.clienteSrv.salva(this.cliente)
+          
         }
         // 2) Dar o feedback para o usuário
         this.snackBar.open('Dados salvos com sucesso.', '=D',

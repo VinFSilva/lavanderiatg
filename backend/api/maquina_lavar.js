@@ -9,17 +9,15 @@ module.exports = app => {
     }
 
     const salva = (req, res) => {
-
         getHash(req.body.pass, hash => {
             const password = hash
-
             app.db('maquina_lavar')
                 .insert({
                     numero: req.body.numero,
                     marca: req.body.marca,
                     modelo: req.body.modelo,
                     peso_maximo: req.body.peso_maximo,
-                    ativo: req.body.ativo,
+                    ativo: true,
                     createdAt: moment().format(),
                     updatedAt: moment().format()
 
@@ -52,7 +50,7 @@ module.exports = app => {
                 marca: req.body.marca,
                 modelo: req.body.modelo,
                 peso_maximo: req.body.peso_maximo,
-                ativo: req.body.ativo,
+                ativo: true,
                 updatedAt: moment().format()
 
             })

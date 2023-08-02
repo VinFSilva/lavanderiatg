@@ -31,7 +31,7 @@ export class PranchaPassarFormComponent implements OnInit {
         // 1) Acionar o back-end para buscar esse registro
         // e disponibilizá-lo para edição        
         this.prancha_passar = await this.prancha_passarSrv.listarUm(this.actRoute.snapshot.params['id'])
-
+        this.title = "Editando secadora"
       }
       catch (erro) {
         console.log(erro)

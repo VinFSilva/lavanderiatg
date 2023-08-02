@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,7 +22,7 @@ export class EnderecoService {
   }
 
   salva(body: any) {
-    return firstValueFrom(this.http.post(this.apiUrl, body));
+    return firstValueFrom(this.http.post(`${this.apiUrl}/endereco`, body));
   }
 
   listarUm(id: string) {
@@ -29,6 +30,6 @@ export class EnderecoService {
   }
 
   update(body: any) {
-    return firstValueFrom(this.http.put(this.apiUrl, body));
+    return firstValueFrom(this.http.put(`${this.apiUrl}/endereco/${body.id}`, body));
   }
 }

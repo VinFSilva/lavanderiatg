@@ -31,7 +31,7 @@ export class SecadoraFormComponent implements OnInit {
         // 1) Acionar o back-end para buscar esse registro
         // e disponibilizá-lo para edição        
         this.secadora = await this.secadoraSrv.listarUm(this.actRoute.snapshot.params['id'])
-
+        this.title = "Editando Secadora"
       }
       catch (erro) {
         console.log(erro)

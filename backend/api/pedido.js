@@ -15,11 +15,13 @@ module.exports = app => {
 
             app.db('pedido')
                 .insert({
-                    numero: req.body.numero,
                     data_coleta: req.body.data_coleta,
                     data_entrega: req.body.data_entrega,
                     finalizado: req.body.finalizado,
                     aberto: req.body.aberto,
+                    numero_pecas: req.body.numero_pecas,
+                    peso_total: req.body.peso_total,
+                    observacoes: req.body.observacoes,
                     createdAt: moment().format(),
                     updatedAt: moment().format(),
                     cliente_id: req.body.cliente_id,
@@ -55,11 +57,13 @@ module.exports = app => {
         await app.db('pedido')
             .where({ id: req.params.id })
             .update({
-                numero: req.body.numero,
                 data_coleta: req.body.data_coleta,
                 data_entrega: req.body.data_entrega,
                 finalizado: req.body.finalizado,
                 aberto: req.body.aberto,
+                numero_pecas: req.body.numero_pecas,
+                peso_total: req.body.peso_total,
+                observacoes: req.body.observacoes,
                 updatedAt: moment().format(),
                 cliente_id: req.body.cliente_id,
                 itens_id: req.body.itens_id,

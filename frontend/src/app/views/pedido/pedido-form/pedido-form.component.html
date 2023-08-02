@@ -32,19 +32,28 @@
     </mat-form-field>
 
     <mat-form-field>
+        <mat-label>Número de peças</mat-label>
+        <input matInput type="number" placeholder="Informe o numero de peças" [(ngModel)]="pedido.numero_pecas"
+            name="numero_pecas" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Peso Total</mat-label>
+        <input matInput type="number" placeholder="Informe o peso total" [(ngModel)]="pedido.peso_total"
+            name="peso_total" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Observações</mat-label>
+        <input matInput type="string" placeholder="Observações sobre peças de roupa" [(ngModel)]="pedido.observacoes"
+            name="observacoes" required>
+    </mat-form-field>
+
+    <mat-form-field>
         <mat-label>Cliente</mat-label>
         <mat-select [(ngModel)]="pedido.cliente_id" name="cliente" required>
             <mat-option *ngFor="let cliente of clientes" [value]="cliente.id">
                 {{ cliente.nome }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-
-    <mat-form-field>
-        <mat-label>items</mat-label>
-        <mat-select [(ngModel)]="pedido.item_id" name="item" required>
-            <mat-option *ngFor="let item of items" [value]="item.id">
-                {{ item.id }}
             </mat-option>
         </mat-select>
     </mat-form-field>

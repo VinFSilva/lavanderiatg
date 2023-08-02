@@ -17,8 +17,6 @@ const maskConfig: Partial<IConfig> = {
 
 import { EnderecoListComponent } from './views/endereco/endereco-list/endereco-list.component';
 import { EnderecoFormComponent } from './views/endereco/endereco-form/endereco-form.component';
-import { ItemListComponent } from './views/item/item-list/item-list.component';
-import { ItemFormComponent } from './views/item/item-form/item-form.component';
 import { MaquinaLavarListComponent } from './views/maquina-lavar/maquina-lavar-list/maquina-lavar-list.component';
 import { MaquinaLavarFormComponent } from './views/maquina-lavar/maquina-lavar-form/maquina-lavar-form.component';
 import { PedidoListComponent } from './views/pedido/pedido-list/pedido-list.component';
@@ -65,7 +63,6 @@ import { UserService } from './views/user/user.service';
   declarations: [
     AppComponent,
     EnderecoListComponent,
-    ItemListComponent,
     MaquinaLavarListComponent,
     PedidoListComponent,
     PranchaPassarListComponent,
@@ -77,7 +74,6 @@ import { UserService } from './views/user/user.service';
     ClienteFormComponent,
     ClienteListComponent,
     EnderecoFormComponent,
-    ItemFormComponent,
     MaquinaLavarFormComponent,
     PranchaPassarFormComponent,
     PedidoFormComponent,

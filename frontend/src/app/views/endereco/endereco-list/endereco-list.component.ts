@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EnderecoService } from '../endereco.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ClienteService } from '../../cliente/cliente.service';
 
 @Component({
   selector: 'app-endereco-list',
@@ -19,14 +18,24 @@ export class EnderecoListComponent implements OnInit {
   // Injeção de dependência ou inversão de controle
   constructor(
     private enderecoSrv: EnderecoService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
   ) { }
 
   async ngOnInit() {
     this.enderecos = await this.enderecoSrv.listar()
+    //this.carregarDados (this.enderecos.cliente)
     console.log(this.enderecos)
   }
 
+  /*async carregarDados(string) {
+    try {
+        await this.clienteSrv.listar()
+    }
+    catch (erro) {
+        console.log(erro)
+        this.snackBar.open('ERRO: não foi possível carregar os dados necessários para a página.', '=(', { duration: 7000 })
+    }
+}*/
   async deletar(id: string) {
     if (confirm('Deseja realmente deletar?')) {
       try {

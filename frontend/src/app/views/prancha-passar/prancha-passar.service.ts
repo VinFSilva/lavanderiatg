@@ -22,7 +22,7 @@ export class PranchaPassarService {
   }
 
   salva(body: any) {
-    return firstValueFrom(this.http.post(this.apiUrl, body));
+    return firstValueFrom(this.http.post(`${this.apiUrl}/prancha_passar`, body));
   }
 
   listarUm(id: string) {
@@ -30,6 +30,6 @@ export class PranchaPassarService {
   }
 
   update(body: any) {
-    return firstValueFrom(this.http.put(this.apiUrl, body));
+    return firstValueFrom(this.http.put(`${this.apiUrl}/prancha_passar/${body.id}`, body));
   }  
 }

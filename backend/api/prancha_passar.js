@@ -18,7 +18,7 @@ module.exports = app => {
                     numero: req.body.numero,
                     marca: req.body.marca,
                     modelo: req.body.modelo,
-                    ativo: req.body.ativo,
+                    ativo: true,
                     createdAt: moment().format(),
                     updatedAt: moment().format()
 
@@ -50,7 +50,7 @@ module.exports = app => {
                 numero: req.body.numero,
                 marca: req.body.marca,
                 modelo: req.body.modelo,
-                ativo: req.body.ativo,
+                ativo: true,
                 updatedAt: moment().format()
 
             })

@@ -45,6 +45,24 @@
             }} </td>
     </ng-container>
 
+    <!-- Numero Column -->
+    <ng-container matColumnDef="numero_pecas">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Número de peças </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let item"> {{ item.numero_pecas }} </td>
+    </ng-container>
+
+    <!-- Peso Column -->
+    <ng-container matColumnDef="peso_total">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Peso Total </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let item"> {{ item.peso_total }} </td>
+    </ng-container>
+
+    <!-- Observações Column -->
+    <ng-container matColumnDef="observacoes">
+        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Observações </th>
+        <td mat-cell class="cell-align-center" *matCellDef="let item"> {{ item.observacoes }} </td>
+    </ng-container>
+
     <!-- Cliente Column -->
     <ng-container matColumnDef="cliente">
         <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Cliente </th>

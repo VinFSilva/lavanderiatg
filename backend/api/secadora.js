@@ -19,7 +19,7 @@ module.exports = app => {
                     marca: req.body.marca,
                     modelo: req.body.modelo,
                     peso_maximo: req.body.peso_maximo,
-                    ativo: req.body.ativo,
+                    ativo: true,
                     createdAt: moment().format(),
                     updatedAt: moment().format()
 
@@ -52,7 +52,7 @@ module.exports = app => {
                 marca: req.body.marca,
                 modelo: req.body.modelo,
                 peso_maximo: req.body.peso_maximo,
-                ativo: req.body.ativo,
+                ativo: true,
                 updatedAt: moment().format()
 
             })

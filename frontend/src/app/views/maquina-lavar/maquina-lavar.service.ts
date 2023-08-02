@@ -22,7 +22,7 @@ export class MaquinaLavarService {
   }
 
   salva(body: any) {
-    return firstValueFrom(this.http.post(this.apiUrl, body));
+    return firstValueFrom(this.http.post(`${this.apiUrl}/maquina_lavar`, body));
   }
 
   listarUm(id: string) {
@@ -30,6 +30,6 @@ export class MaquinaLavarService {
   }
 
   update(body: any) {
-    return firstValueFrom(this.http.put(this.apiUrl, body));
+    return firstValueFrom(this.http.put(`${this.apiUrl}/maquina_lavar/${body.id}`, body));
   }  
 }

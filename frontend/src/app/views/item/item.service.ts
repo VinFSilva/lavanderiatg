@@ -22,7 +22,7 @@ export class ItemService {
   }
 
   salva(body: any) {
-    return firstValueFrom(this.http.post(this.apiUrl, body));
+    return firstValueFrom(this.http.post(`${this.apiUrl}/item`, body));
   }
 
   listarUm(id: string) {
@@ -30,6 +30,6 @@ export class ItemService {
   }
 
   update(body: any) {
-    return firstValueFrom(this.http.put(this.apiUrl, body));
+    return firstValueFrom(this.http.put(`${this.apiUrl}/item/${body.id}`, body));
   }
 }

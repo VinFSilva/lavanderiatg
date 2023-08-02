@@ -20,7 +20,7 @@ module.exports = app => {
                     bairro: req.body.bairro,
                     cidade: req.body.cidade,
                     estado: req.body.estado,
-                    ativo: req.body.ativo,
+                    ativo: true,
                     createdAt: moment().format(),
                     updatedAt: moment().format(),
                     cliente_id: req.body.cliente_id
@@ -34,10 +34,17 @@ module.exports = app => {
 
     const listar = (req, res) => {
         app.db('endereco')
+            .select('endereco.*', 'cliente.nome')
+            .innerJoin('cliente', 'endereco.cliente_id', '=', 'cliente.id')
+            .then(resultado => res.json(resultado))
+            .catch(err => res.json(err))
+    }
+    /*const listar = (req, res) => {
+        app.db('endereco')
             .select('*')
             .then(este => res.json(este))
             .catch(err => res.json(err))
-    }
+    }*/
 
     const listarUm = async (req, res) => {
         await app.db('endereco')
@@ -56,7 +63,7 @@ module.exports = app => {
                 bairro: req.body.bairro,
                 cidade: req.body.cidade,
                 estado: req.body.estado,
-                ativo: req.body.ativo,
+                ativo: true,
                 updatedAt: moment().format()
 
             })

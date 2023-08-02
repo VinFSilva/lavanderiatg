@@ -23,7 +23,7 @@ module.exports = app => {
                     email: req.body.email,
                     cargo: req.body.cargo,
                     salario: req.body.salario,
-                    ativo: req.body.ativo,
+                    ativo: true,
                     createdAt: moment().format(),
                     updatedAt: moment().format()
 
@@ -60,7 +60,7 @@ module.exports = app => {
                 email: req.body.email,
                 cargo: req.body.cargo,
                 salario: req.body.salario,
-                ativo: req.body.ativo,
+                ativo: true,
                 updatedAt: moment().format()
             })
             .then(_ => res.status(204).send())
