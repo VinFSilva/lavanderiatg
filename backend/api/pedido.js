@@ -18,14 +18,13 @@ module.exports = app => {
                     data_coleta: req.body.data_coleta,
                     data_entrega: req.body.data_entrega,
                     finalizado: req.body.finalizado,
-                    aberto: req.body.aberto,
+                    aberto: true,
                     numero_pecas: req.body.numero_pecas,
                     peso_total: req.body.peso_total,
                     observacoes: req.body.observacoes,
                     createdAt: moment().format(),
                     updatedAt: moment().format(),
                     cliente_id: req.body.cliente_id,
-                    item_id: req.body.item_id,
                     maquina_lavar_id: req.body.maquina_lavar_id,
                     secadora_id: req.body.secadora_id,
                     prancha_passar_id: req.body.prancha_passar_id
@@ -36,12 +35,18 @@ module.exports = app => {
         })
     }
 
+   
     const listar = (req, res) => {
         app.db('pedido')
-            .select('*')
-            .then(este => res.json(este))
+            .select('pedido.*', 'cliente.nome', 'maquina_lavar.numero', 'secadora.numero', 'prancha_passar.numero')
+            .innerJoin('cliente', 'pedido.cliente_id', '=', 'cliente_id')
+            .innerJoin('maquina_lavar', 'pedido.maquina_lavar_id.', '=', 'maquina_lavar_id')
+            .innerJoin('secadora', 'pedido.secadora_id', '=', 'secadora_id')
+            .innerJoin('prancha_passar', 'pedido;prancha_passar_id', '=', 'prancha_passar_id')
+            .then(resultado => res.json(resultado))
             .catch(err => res.json(err))
     }
+    
 
     const listarUm = async (req, res) => {
         console.log("Listing order")
@@ -60,13 +65,11 @@ module.exports = app => {
                 data_coleta: req.body.data_coleta,
                 data_entrega: req.body.data_entrega,
                 finalizado: req.body.finalizado,
-                aberto: req.body.aberto,
                 numero_pecas: req.body.numero_pecas,
                 peso_total: req.body.peso_total,
                 observacoes: req.body.observacoes,
                 updatedAt: moment().format(),
                 cliente_id: req.body.cliente_id,
-                itens_id: req.body.itens_id,
                 maquina_lavar_id: req.body.maquina_lavar_id,
                 secadora_id: req.body.secadora_id,
                 prancha_passar_id: req.body.prancha_secar_id
