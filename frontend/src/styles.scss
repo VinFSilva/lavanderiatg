@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~material-design-icons/iconfont/material-icons.css";
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap');
 
 html,
 body {
@@ -9,50 +10,96 @@ body {
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-html,
-body {
-    height: 100%;
+#content {
+    margin: 40px;
 }
-
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-.form-signin {
+.mat-table {
     width: 100%;
-    max-width: 330px;
-    padding: 15px;
-    margin: auto;
+    font-family: 'Poppins', sans-serif;
+}
+.cell-align-right {
+    text-align: right;
+}
+.cell-align-center {
+    text-align: center !important;
 }
 
-.form-signin .checkbox {
-    font-weight: 400;
+//Desaparecer com os botões editar e excluir
+.mat-row .mat-raised-button{
+    visibility: hidden;    
 }
 
-.form-signin .form-control {
-    position: relative;
-    box-sizing: border-box;
-    height: auto;
-    padding: 10px;
-    font-size: 16px;
+//Reexibe os botões na linha sob o cursor do mouse
+.mat-row:hover .mat-raised-button {
+    visibility: visible;
 }
 
-.form-signin .form-control:focus {
-    z-index: 2;
+.mat-menu-item:hover{
+    filter: brightness(110%);
+    background-color: rgb(0, 163, 212);
+}
+//Destaca a linha sob o mouse
+.mat-row:hover{
+    filter: brightness(110%);
+    background-color: rgb(4,156,193,1);
 }
 
-.form-signin input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+.mat-raised-button:hover{
+    filter: brightness(110%);
+    background-color: rgb(0, 163, 212);
+}
+.new-item{
+    background: rgb(9,90,121);
+    background: linear-gradient(90deg, rgba(9,90,121,1) 0%, rgba(4,156,193,1) 48%, rgba(0,212,255,1) 100%);
+    padding-left: 1 !important;
+    padding-right: 0 !important;
+    //justify-content: flex-end;
+
+}
+.std-form{
+    max-width: 80%;
+    margin: 0 auto;
+
+    mat-form-field{
+        min-width: 150px;
+        max-width: 500px;
+        width: 100%;
+        margin-right: 30px;
+        font-family: 'Poppins', sans-serif
+    }
+}
+.form-buttons{
+    background: transparent;
+    mat-toolbar-row{
+        display: flex;
+        justify-content: space-around;
+    }
 }
 
-.form-signin input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+#wave{
+    //background-image: url(frontend\assets\wave.png);
+    height: 130px;
 }
+
+.mat-list-item{
+    font-family: 'Poppins', sans-serif;
+}
+
+a{
+    border-top: 1px solid rgb(236, 231, 231);
+    border-radius: 10px;
+    font-size: 115%;
+}
+h1{
+    padding-left: 15px;
+    padding-top: 10px;
+
+}
+
+.material-icons{
+    margin-right: 2px;
+}
+
