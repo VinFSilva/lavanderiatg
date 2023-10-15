@@ -5,12 +5,7 @@
 
 html,
 body {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
+    height: 100%;  
 }
 
 #content {
@@ -18,7 +13,7 @@ body {
 }
 .mat-table {
     width: 100%;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
 }
 .cell-align-right {
     text-align: right;
@@ -45,11 +40,16 @@ body {
 .mat-row:hover{
     filter: brightness(110%);
     background-color: rgb(4,156,193,1);
+    box-shadow:
+    3px 3px #6f7172;
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
 }
 
 .mat-raised-button:hover{
     filter: brightness(110%);
     background-color: rgb(0, 163, 212);
+    
 }
 .new-item{
     background: rgb(9,90,121);
@@ -57,7 +57,22 @@ body {
     padding-left: 1 !important;
     padding-right: 0 !important;
     //justify-content: flex-end;
+}
+.mat-drawer{
+    //height: 297px;
+    background: rgb(9,90,121);
+    background: linear-gradient(0deg, rgba(9,90,121,1) 0%, rgba(4,156,193,1) 48%, rgba(0,212,255,1) 100%);
+    margin-top: 9px;
+}
 
+
+.mat-list-item-content:hover{
+    background-color: rgb(214, 236, 241);
+    box-shadow:
+    2px 2px #6f7172;
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
+  
 }
 .std-form{
     max-width: 80%;
@@ -79,27 +94,39 @@ body {
     }
 }
 
+
 #wave{
-    //background-image: url(frontend\assets\wave.png);
-    height: 130px;
+    background-image: url(../assets/wave.png);
+    height: 139px;
 }
 
-.mat-list-item{
-    font-family: 'Poppins', sans-serif;
+#cor-gradiente{
+    background: rgb(9,90,121);
+    background: linear-gradient(90deg, rgba(9,90,121,1) 0%, rgba(4,156,193,1) 48%, rgba(0,212,255,1) 100%);
+}
+#cor-footer{
+    color: black;
+}
+#cor-footer2{
+    color: rgb(2, 66, 95) ;
 }
 
 a{
-    border-top: 1px solid rgb(236, 231, 231);
-    border-radius: 10px;
+    //border-top: 1px solid rgb(117, 117, 117);
+    //border-radius: 10px;
     font-size: 115%;
+    font-family: 'Poppins', sans-serif !important;
 }
 h1{
     padding-left: 15px;
-    padding-top: 10px;
-
+    padding-top: 15px;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 .material-icons{
     margin-right: 2px;
 }
 
+#logo{
+    background-image: url(/lavanderiatg/frontend/src/assets/logo.png);
+}
