@@ -2,12 +2,6 @@
 <form class="std-form" #f="ngForm" (ngSubmit)="salva(f)">
 
     <mat-form-field>
-        <mat-label>Número do pedido</mat-label>
-        <input matInput type="number" placeholder="Informe o numero do pedido" [(ngModel)]="pedido.numero" name="numero"
-            required>
-    </mat-form-field>
-
-    <mat-form-field>
         <mat-label>Data da Coleta</mat-label>
         <input matInput [matDatepicker]="dataColeta" name="data_coleta" [(ngModel)]="pedido.data_coleta"
             placeholder="Informe a data da coleta" required>
@@ -26,7 +20,7 @@
     <mat-form-field>
         <mat-label>Data de Finalização</mat-label>
         <input matInput [matDatepicker]="finalizado" name="finalizado" [(ngModel)]="pedido.finalizado"
-            placeholder="Informe a data de finalização" required>
+            placeholder="Informe a data de finalização" >
         <mat-datepicker-toggle matSuffix [for]="finalizado"></mat-datepicker-toggle>
         <mat-datepicker #finalizado></mat-datepicker>
     </mat-form-field>
@@ -39,14 +33,14 @@
 
     <mat-form-field>
         <mat-label>Peso Total</mat-label>
-        <input matInput type="number" placeholder="Informe o peso total" [(ngModel)]="pedido.peso_total"
+        <input matInput type="number" placeholder="Informe o peso total em gramas" [(ngModel)]="pedido.peso_total"
             name="peso_total" required>
     </mat-form-field>
 
     <mat-form-field>
         <mat-label>Observações</mat-label>
         <input matInput type="string" placeholder="Observações sobre peças de roupa" [(ngModel)]="pedido.observacoes"
-            name="observacoes" required>
+            name="observacoes" >
     </mat-form-field>
 
     <mat-form-field>
@@ -62,7 +56,7 @@
         <mat-label>Maquina de Lavar</mat-label>
         <mat-select [(ngModel)]="pedido.maquina_lavar_id" name="maquina_lavar" required>
             <mat-option *ngFor="let maquina_lavar of maquinas_lavar" [value]="maquina_lavar.id">
-                {{ maquina_lavar.numero }}
+                {{ maquina_lavar.id }}
             </mat-option>
         </mat-select>
     </mat-form-field>
@@ -71,7 +65,7 @@
         <mat-label>Secadora</mat-label>
         <mat-select [(ngModel)]="pedido.secadora_id" name="secadora" required>
             <mat-option *ngFor="let secadora of secadoras" [value]="secadora.id">
-                {{ secadora.numero }}
+                {{ secadora.id }}
             </mat-option>
         </mat-select>
     </mat-form-field>
@@ -80,7 +74,7 @@
         <mat-label>Prancha de Passar</mat-label>
         <mat-select [(ngModel)]="pedido.prancha_passar_id" name="prancha_passar" required>
             <mat-option *ngFor="let prancha_passar of pranchas_passar" [value]="prancha_passar.id">
-                {{ prancha_passar.numero }}
+                {{ prancha_passar.id }}
             </mat-option>
         </mat-select>
     </mat-form-field>

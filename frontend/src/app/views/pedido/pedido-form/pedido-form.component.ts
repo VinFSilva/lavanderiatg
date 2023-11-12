@@ -74,9 +74,6 @@ export class PedidoFormComponent implements OnInit {
   async salva(form: NgForm) {
     if (form.valid) {
       try {
-        //1)Salvar os dados no back-end  
-        //Se o pedido já existir(caso de edição), ele ja terá
-        //o atributo id  
         if (this.pedido.id) {
           await this.pedidoSrv.update(this.pedido) //atualização
         }
@@ -98,8 +95,6 @@ export class PedidoFormComponent implements OnInit {
 
   voltar(form: NgForm) {
     let result = true
-    // form.dirty = formulário "sujo", não salvo (via código)
-    // form.touched = o conteúdo de algum campo foi alterado (via usuário)
     if (form.dirty && form.touched) {
       result = confirm('Dados não salvos. Deseja realmente voltar?')
     }

@@ -13,7 +13,6 @@ module.exports = app => {
             const password = hash
             app.db('maquina_lavar')
                 .insert({
-                    numero: req.body.numero,
                     marca: req.body.marca,
                     modelo: req.body.modelo,
                     peso_maximo: req.body.peso_maximo,

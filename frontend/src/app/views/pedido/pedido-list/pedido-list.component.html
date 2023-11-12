@@ -15,11 +15,6 @@
         <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido.id }} </td>
     </ng-container>
 
-    <!-- Numero Column -->
-    <ng-container matColumnDef="numero">
-        <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Número do pedido </th>
-        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido.numero }} </td>
-    </ng-container>
 
     <!-- DataCol Column -->
     <ng-container matColumnDef="data_coleta">
@@ -63,31 +58,31 @@
     <!-- Cliente Column -->
     <ng-container matColumnDef="cliente">
         <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Cliente </th>
-        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido.cliente?.nome }} </td>
+        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido?.nome }} </td>
     </ng-container>
 
     <!-- Itens Column -->
     <ng-container matColumnDef="item">
         <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Itens </th>
-        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido.item?.numero }} </td>
+        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido?.item?.numero }} </td>
     </ng-container>
 
     <!-- Maquina Column -->
     <ng-container matColumnDef="maquina_lavar">
         <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Maquina de Lavar </th>
-        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido.maquina_lavar?.numero }} </td>
+        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido?.maquina_lavar_id }} </td>
     </ng-container>
 
     <!-- Secadora Column -->
     <ng-container matColumnDef="secadora">
         <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Secadora </th>
-        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido.secadora?.numero }} </td>
+        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido?.secadora_id }} </td>
     </ng-container>
 
     <!-- Prancha Column -->
     <ng-container matColumnDef="prancha_passar">
         <th mat-header-cell class="cell-align-center" *matHeaderCellDef> Prancha de Passar </th>
-        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido.prancha_passar?.numero }} </td>
+        <td mat-cell class="cell-align-center" *matCellDef="let pedido"> {{ pedido.prancha_passar_id }} </td>
     </ng-container>
 
 

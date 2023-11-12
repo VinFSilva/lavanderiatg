@@ -15,7 +15,6 @@ module.exports = app => {
 
             app.db('prancha_passar')
                 .insert({
-                    numero: req.body.numero,
                     marca: req.body.marca,
                     modelo: req.body.modelo,
                     ativo: true,
@@ -47,7 +46,6 @@ module.exports = app => {
         await app.db('prancha_passar')
             .where({ id: req.params.id })
             .update({
-                numero: req.body.numero,
                 marca: req.body.marca,
                 modelo: req.body.modelo,
                 ativo: true,

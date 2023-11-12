@@ -13,7 +13,7 @@ export class MaquinaLavarListComponent implements OnInit {
   maquinas_lavar: any = []
 
   // Quais colunas serão exibidas na tabela, e em qual ordem
-  displayedColumns: string[] = ['numero', 'marca', 'modelo', 'peso_maximo', 'editar', 'deletar']
+  displayedColumns: string[] = ['id','marca', 'modelo', 'peso_maximo', 'editar', 'deletar']
 
   // Injeção de dependência ou inversão de controle
   constructor(

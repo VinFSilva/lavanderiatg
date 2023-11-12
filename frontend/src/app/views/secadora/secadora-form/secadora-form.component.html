@@ -1,11 +1,5 @@
 <h1>Dados da Secadora</h1>
 <form class="std-form" #f="ngForm" (ngSubmit)="salva(f)">
-
-    <mat-form-field>
-        <mat-label>Numero da Secadora</mat-label>
-        <input matInput type="number" [(ngModel)]="secadora.numero" name="numero" required>
-    </mat-form-field>
-
     <mat-form-field>
         <mat-label>Marca</mat-label>
         <input matInput type="string" [(ngModel)]="secadora.marca" name="marca" required>

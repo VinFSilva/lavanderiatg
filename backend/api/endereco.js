@@ -39,12 +39,6 @@ module.exports = app => {
             .then(resultado => res.json(resultado))
             .catch(err => res.json(err))
     }
-    /*const listar = (req, res) => {
-        app.db('endereco')
-            .select('*')
-            .then(este => res.json(este))
-            .catch(err => res.json(err))
-    }*/
 
     const listarUm = async (req, res) => {
         await app.db('endereco')

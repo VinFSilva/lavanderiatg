@@ -15,7 +15,6 @@ module.exports = app => {
 
             app.db('secadora')
                 .insert({
-                    numero: req.body.numero,
                     marca: req.body.marca,
                     modelo: req.body.modelo,
                     peso_maximo: req.body.peso_maximo,

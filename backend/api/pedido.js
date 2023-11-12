@@ -36,20 +36,21 @@ module.exports = app => {
     }
 
    
-    const listar = (req, res) => {
-        app.db('pedido')
-            .select('pedido.*', 'cliente.nome', 'maquina_lavar.numero', 'secadora.numero', 'prancha_passar.numero')
-            .innerJoin('cliente', 'pedido.cliente_id', '=', 'cliente_id')
-            .innerJoin('maquina_lavar', 'pedido.maquina_lavar_id.', '=', 'maquina_lavar_id')
-            .innerJoin('secadora', 'pedido.secadora_id', '=', 'secadora_id')
-            .innerJoin('prancha_passar', 'pedido;prancha_passar_id', '=', 'prancha_passar_id')
-            .then(resultado => res.json(resultado))
+    const listar = async (req, res) => {
+        await app.db('pedido')
+            .select('pedido.*', 'cliente.nome', 'maquina_lavar.id', 'secadora.id', 'prancha_passar.id')
+            .innerJoin('cliente', 'pedido.cliente_id', '=', 'cliente.id')
+            .innerJoin('maquina_lavar', 'pedido.maquina_lavar_id', '=', 'maquina_lavar.id')
+            .innerJoin('secadora', 'pedido.secadora_id', '=', 'secadora.id')
+            .innerJoin('prancha_passar', 'pedido.prancha_passar_id', '=', 'prancha_passar.id')
+            .then(resultado => {
+                res.json(resultado) 
+            })
             .catch(err => res.json(err))
     }
     
 
     const listarUm = async (req, res) => {
-        console.log("Listing order")
         await app.db('pedido')
             .select('*')
             .where({ id: req.params.id })

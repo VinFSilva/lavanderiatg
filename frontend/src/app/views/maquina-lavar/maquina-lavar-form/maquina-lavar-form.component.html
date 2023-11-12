@@ -2,11 +2,6 @@
 <form class="std-form" #f="ngForm" (ngSubmit)="salva(f)">
 
     <mat-form-field>
-        <mat-label>Numero da Máquina</mat-label>
-        <input matInput type="number" [(ngModel)]="maquina_lavar.numero" name="numero" required>
-    </mat-form-field>
-
-    <mat-form-field>
         <mat-label>Marca</mat-label>
         <input matInput type="string" [(ngModel)]="maquina_lavar.marca" name="marca" required>
     </mat-form-field>
